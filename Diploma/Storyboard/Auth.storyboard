@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7y-zO-b3C">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="oGz-ei-94W">
+            <objects>
+                <navigationController id="a7y-zO-b3C" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="au9-dz-uuv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Uq3-u2-gyy" kind="relationship" relationship="rootViewController" id="UKx-xv-tn7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6kA-pd-5Xn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655" y="4"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="dhf-CG-sZh">
+            <objects>
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uq3-u2-gyy" customClass="FirstViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="41K-Ob-0FB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! We are happy to see you here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhx-hg-agU">
+                                <rect key="frame" x="35" y="158" width="344" height="55"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" name="titleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="quZ-K3-HHQ">
+                                <rect key="frame" x="45" y="313" width="324" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="WJ5-5A-cWR"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4h-Xf-ubM">
+                                <rect key="frame" x="45" y="733" width="324" height="60"/>
+                                <color key="backgroundColor" name="Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="leN-RP-9Hg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="Uq3-u2-gyy" eventType="touchUpInside" id="eB1-qW-smx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QyA-57-UJV"/>
+                        <color key="backgroundColor" red="0.011764705882352941" green="0.015686274509803921" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QyA-57-UJV" firstAttribute="trailing" secondItem="I4h-Xf-ubM" secondAttribute="trailing" constant="45" id="2xk-Qw-oXo"/>
+                            <constraint firstItem="fhx-hg-agU" firstAttribute="leading" secondItem="QyA-57-UJV" secondAttribute="leading" constant="35" id="C4F-7e-lhh"/>
+                            <constraint firstItem="quZ-K3-HHQ" firstAttribute="leading" secondItem="QyA-57-UJV" secondAttribute="leading" constant="45" id="ES5-g0-1cT"/>
+                            <constraint firstItem="quZ-K3-HHQ" firstAttribute="centerY" secondItem="41K-Ob-0FB" secondAttribute="centerY" id="KXq-ai-llO"/>
+                            <constraint firstItem="quZ-K3-HHQ" firstAttribute="top" secondItem="fhx-hg-agU" secondAttribute="bottom" constant="100" id="PSb-N7-9b2"/>
+                            <constraint firstItem="I4h-Xf-ubM" firstAttribute="leading" secondItem="QyA-57-UJV" secondAttribute="leading" constant="45" id="dKW-s8-GGD"/>
+                            <constraint firstItem="QyA-57-UJV" firstAttribute="trailing" secondItem="quZ-K3-HHQ" secondAttribute="trailing" constant="45" id="tBQ-Ns-Gkw"/>
+                            <constraint firstItem="QyA-57-UJV" firstAttribute="trailing" secondItem="fhx-hg-agU" secondAttribute="trailing" constant="35" id="tnA-sO-rPQ"/>
+                            <constraint firstItem="I4h-Xf-ubM" firstAttribute="top" secondItem="quZ-K3-HHQ" secondAttribute="bottom" constant="150" id="zue-QX-nj4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jk0-Xe-yLm"/>
+                    <connections>
+                        <outlet property="startButton" destination="I4h-Xf-ubM" id="wzf-EC-ylB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4y-BZ-3pQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="3"/>
+        </scene>
+        <!--Description View Controller-->
+        <scene sceneID="ITC-WR-zD7">
+            <objects>
+                <viewController storyboardIdentifier="DescriptionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HVm-lN-O6o" customClass="DescriptionViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ng9-6d-HeT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sW3-Yl-XeD"/>
+                        <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQo-yn-rcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="3"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="Yr9-Py-F78">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uag-ZP-3Cm" customClass="SignInViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6wR-p9-TuK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Pl6-67-7LC"/>
+                        <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wMF-Y1-CX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1812" y="3"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="UNv-tf-WdC">
+            <objects>
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C7e-CL-4sY" customClass="SignUpViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uBC-fA-5vD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uKi-Fm-gRZ"/>
+                        <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Mq-el-M8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2641" y="3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="welcomeImage" width="660" height="570"/>
+        <namedColor name="Color">
+            <color red="0.792156862745098" green="0.94117647058823528" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="0.56470588235294117" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
