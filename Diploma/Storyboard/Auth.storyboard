@@ -89,13 +89,49 @@
                     <view key="view" contentMode="scaleToFill" id="Ng9-6d-HeT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="x3c-M6-Nt3">
+                                <rect key="frame" x="146" y="684" width="122" height="28"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-I1-0zd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvR-Pv-cls">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MvR-Pv-cls" firstAttribute="top" secondItem="GbZ-RE-mA6" secondAttribute="top" id="0Dp-yb-6iQ"/>
+                                    <constraint firstItem="MvR-Pv-cls" firstAttribute="centerX" secondItem="NHn-uU-am7" secondAttribute="centerX" id="Cp7-BQ-ulL"/>
+                                    <constraint firstItem="MvR-Pv-cls" firstAttribute="leading" secondItem="GbZ-RE-mA6" secondAttribute="leading" id="Y25-dz-6Ud"/>
+                                    <constraint firstItem="MvR-Pv-cls" firstAttribute="bottom" secondItem="GbZ-RE-mA6" secondAttribute="bottom" id="f32-k9-jf4"/>
+                                    <constraint firstItem="MvR-Pv-cls" firstAttribute="height" secondItem="NHn-uU-am7" secondAttribute="height" id="lmf-g2-wb3"/>
+                                    <constraint firstItem="MvR-Pv-cls" firstAttribute="trailing" secondItem="GbZ-RE-mA6" secondAttribute="trailing" id="tzu-Jx-ahf"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="GbZ-RE-mA6"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="NHn-uU-am7"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HVm-lN-O6o" id="fET-U0-rt9"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="sW3-Yl-XeD"/>
                         <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sW3-Yl-XeD" firstAttribute="bottom" secondItem="x3c-M6-Nt3" secondAttribute="bottom" constant="150" id="8yu-lG-O3u"/>
+                            <constraint firstItem="x3c-M6-Nt3" firstAttribute="centerX" secondItem="Ng9-6d-HeT" secondAttribute="centerX" id="UlS-zP-ecm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="x3c-M6-Nt3" id="BNU-3f-Qw6"/>
+                        <outlet property="scrollView" destination="UIl-I1-0zd" id="fXm-MG-zLz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQo-yn-rcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970" y="3"/>
+            <point key="canvasLocation" x="969.56521739130437" y="2.6785714285714284"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="Yr9-Py-F78">

@@ -262,6 +262,26 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `DescriptionView`.
+    static let descriptionView = _R.nib._DescriptionView()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "DescriptionView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.descriptionView) instead")
+    static func descriptionView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.descriptionView)
+    }
+    #endif
+
+    static func descriptionView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.descriptionView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -281,6 +301,23 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _DescriptionView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "DescriptionView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
