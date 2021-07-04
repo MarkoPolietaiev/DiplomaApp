@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DescriptionView" customModule="Diploma" customModuleProvider="target">
             <connections>
+                <outlet property="button" destination="Fx4-18-dV7" id="Ad4-UH-Dh5"/>
                 <outlet property="imageView" destination="MSs-H0-WCB" id="Sfn-Qi-v80"/>
                 <outlet property="label" destination="YkQ-e4-OoC" id="xbt-U6-HR5"/>
             </connections>
@@ -31,16 +32,33 @@
                     <color key="textColor" name="titleColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx4-18-dV7">
+                    <rect key="frame" x="50" y="449" width="351" height="50"/>
+                    <color key="backgroundColor" name="buttonColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="EWX-hX-9h2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="Lets Try!">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="l2a-KT-I6t"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Fx4-18-dV7" firstAttribute="top" secondItem="YkQ-e4-OoC" secondAttribute="bottom" constant="15" id="Nkr-en-tXG"/>
                 <constraint firstItem="MSs-H0-WCB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-150" id="SNw-H7-yVP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YkQ-e4-OoC" secondAttribute="trailing" constant="65" id="aSg-I8-IV8"/>
+                <constraint firstItem="Fx4-18-dV7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="mEV-Lg-rGd"/>
                 <constraint firstItem="YkQ-e4-OoC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="65" id="uuX-V5-DL1"/>
                 <constraint firstItem="MSs-H0-WCB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="vlg-TF-77t"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MSs-H0-WCB" secondAttribute="trailing" constant="50" id="vvi-iP-Jv1"/>
                 <constraint firstItem="YkQ-e4-OoC" firstAttribute="top" secondItem="MSs-H0-WCB" secondAttribute="bottom" constant="30" id="yZ6-4X-OfO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fx4-18-dV7" secondAttribute="trailing" constant="50" id="zTz-fA-d7t"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -49,6 +67,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="buttonColor">
+            <color red="0.792156862745098" green="0.94117647058823528" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="titleColor">
             <color red="0.56470588235294117" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -34,7 +34,10 @@ class DescriptionViewController: BaseViewController {
         
         let slide2 = DescriptionView()
         let item2 = DescriptionItem(title: "Slide 2", image: R.image.welcomeImage() ?? UIImage())
-        slide2.setupWithItem(item2)
+        slide2.setupWithItem(item2, isLast: true)
+        slide2.action = {
+            self.goToSignUp()
+        }
         
         return [slide1, slide2]
     }
@@ -47,6 +50,12 @@ class DescriptionViewController: BaseViewController {
         for i in 0 ..< slides.count {
             slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
             scrollView.addSubview(slides[i])
+        }
+    }
+    
+    private func goToSignUp() {
+        if let signUpViewController = R.storyboard.auth.signInViewController() {
+            self.navigationController?.pushViewController(signUpViewController, animated: true)
         }
     }
 }
