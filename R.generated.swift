@@ -364,6 +364,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "welcomeImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'welcomeImage' is used in storyboard 'Auth', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "Color", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'Color' is used in storyboard 'Auth', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "buttonColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'buttonColor' is used in storyboard 'Auth', but couldn't be loaded.") }
           if UIKit.UIColor(named: "titleColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'titleColor' is used in storyboard 'Auth', but couldn't be loaded.") }
         }
         if _R.storyboard.auth().descriptionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'descriptionViewController' could not be loaded from storyboard 'Auth' as 'DescriptionViewController'.") }
