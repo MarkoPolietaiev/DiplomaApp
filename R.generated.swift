@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `Auth`.
     static let auth = _R.storyboard.auth()
@@ -97,6 +97,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `Profile`.
+    static let profile = _R.storyboard.profile()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Auth", bundle: ...)`
@@ -116,6 +118,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Profile", bundle: ...)`
+    static func profile(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profile)
     }
     #endif
 
@@ -216,10 +225,28 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `logInImage`.
+    static let logInImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "logInImage")
+    /// Image `signUpImage`.
+    static let signUpImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "signUpImage")
     /// Image `welcomeImage`.
     static let welcomeImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "welcomeImage")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "logInImage", bundle: ..., traitCollection: ...)`
+    static func logInImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logInImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "signUpImage", bundle: ..., traitCollection: ...)`
+    static func signUpImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.signUpImage, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "welcomeImage", bundle: ..., traitCollection: ...)`
@@ -331,6 +358,9 @@ struct _R: Rswift.Validatable {
       #if os(iOS) || os(tvOS)
       try main.validate()
       #endif
+      #if os(iOS) || os(tvOS)
+      try profile.validate()
+      #endif
     }
 
     #if os(iOS) || os(tvOS)
@@ -361,6 +391,9 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "chevron.left") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'chevron.left' is used in storyboard 'Auth', but couldn't be loaded.") } }
+        if UIKit.UIImage(named: "logInImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logInImage' is used in storyboard 'Auth', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "signUpImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'signUpImage' is used in storyboard 'Auth', but couldn't be loaded.") }
         if UIKit.UIImage(named: "welcomeImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'welcomeImage' is used in storyboard 'Auth', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "Color", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'Color' is used in storyboard 'Auth', but couldn't be loaded.") }
@@ -394,15 +427,57 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ViewController
-
+    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let actionsViewController = StoryboardViewControllerResource<ActionsViewController>(identifier: "ActionsViewController")
       let bundle = R.hostingBundle
+      let feedViewController = StoryboardViewControllerResource<FeedViewController>(identifier: "FeedViewController")
       let name = "Main"
+      let searchViewController = StoryboardViewControllerResource<SearchViewController>(identifier: "SearchViewController")
+      let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
+
+      func actionsViewController(_: Void = ()) -> ActionsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: actionsViewController)
+      }
+
+      func feedViewController(_: Void = ()) -> FeedViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: feedViewController)
+      }
+
+      func searchViewController(_: Void = ()) -> SearchViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: searchViewController)
+      }
+
+      func tabBarViewController(_: Void = ()) -> TabBarViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().actionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'actionsViewController' could not be loaded from storyboard 'Main' as 'ActionsViewController'.") }
+        if _R.storyboard.main().feedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'feedViewController' could not be loaded from storyboard 'Main' as 'FeedViewController'.") }
+        if _R.storyboard.main().searchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchViewController' could not be loaded from storyboard 'Main' as 'SearchViewController'.") }
+        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'TabBarViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct profile: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Profile"
+      let profileViewController = StoryboardViewControllerResource<ProfileViewController>(identifier: "ProfileViewController")
+
+      func profileViewController(_: Void = ()) -> ProfileViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: profileViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.profile().profileViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileViewController' could not be loaded from storyboard 'Profile' as 'ProfileViewController'.") }
       }
 
       fileprivate init() {}

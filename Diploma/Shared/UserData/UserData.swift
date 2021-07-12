@@ -10,6 +10,7 @@ import Foundation
 class UserData {
     
     enum DefaultsKeys: String {
+        case firstLaunch
         case authToken
     }
     
@@ -30,6 +31,17 @@ private extension UserData {
 }
 
 extension UserData {
+    
+    // First launch is true by default and changes to false whenever user creates and account or logs in so we do not need to show greetings vc.
+    static var firstLaunch: Bool? {
+        get {
+            return self.get(.firstLaunch) as? Bool? ?? true
+        }
+        set {
+            self.set(newValue, key: .firstLaunch)
+        }
+    }
+    
     static var authToken: String? {
         get {
             return self.get(.authToken) as? String ?? nil

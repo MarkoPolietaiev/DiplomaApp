@@ -9,21 +9,29 @@ import UIKit
 
 class SignUpViewController: BaseViewController {
 
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet weak var createAccountButton: BaseButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setupView()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        self.createAccountButton.setupBorder()
+        self.createAccountButton.layer.cornerRadius = self.createAccountButton.frame.height/2
+        self.containerView.layer.cornerRadius = 15
     }
-    */
+    
 
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func createAccountButtonPressed(_ sender: Any) {
+        
+    }
 }

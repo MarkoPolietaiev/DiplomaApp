@@ -11,8 +11,12 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.applyGradient()
         self.setupNavigationBarView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.applyGradient()
     }
     
     private func applyGradient() {

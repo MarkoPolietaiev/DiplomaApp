@@ -9,21 +9,32 @@ import UIKit
 
 class SignInViewController: BaseViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var logInButton: BaseButton!
+    @IBOutlet weak var signUpButton: BaseButton!
+    
+    @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.setupView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        self.logInButton.setupBorder()
+        self.logInButton.layer.cornerRadius = self.logInButton.frame.height/2
+        self.containerView.layer.cornerRadius = 15
     }
-    */
 
+    @IBAction func logInButtonPressed(_ sender: Any) {
+        // log in
+    }
+    
+    @IBAction func signUpButtonPressed(_ sender: Any) {
+        if let signUpViewController = R.storyboard.auth.signUpViewController() {
+            self.navigationController?.pushViewController(signUpViewController, animated: true)
+        }
+    }
 }

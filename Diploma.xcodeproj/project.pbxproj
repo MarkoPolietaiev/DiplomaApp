@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		610AFE3E269A9E6B00F55A96 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610AFE3D269A9E6B00F55A96 /* Profile.storyboard */; };
 		610AFE42269A9EB600F55A96 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE41269A9EB600F55A96 /* ProfileViewController.swift */; };
+		610AFE44269BBFE900F55A96 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE43269BBFE900F55A96 /* TabBarViewController.swift */; };
+		610AFE46269BC01500F55A96 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE45269BC01500F55A96 /* FeedViewController.swift */; };
+		610AFE48269BC03100F55A96 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE47269BC03100F55A96 /* SearchViewController.swift */; };
+		610AFE4A269BC06200F55A96 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE49269BC06200F55A96 /* ActionsViewController.swift */; };
+		610AFE4C269BCAB900F55A96 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE4B269BCAB900F55A96 /* BaseButton.swift */; };
+		610AFE4E269BCC0000F55A96 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610AFE4D269BCC0000F55A96 /* BaseTextField.swift */; };
 		61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBD2688182D00B799C2 /* R.generated.swift */; };
 		61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBF2688198500B799C2 /* UIColor+Extension.swift */; };
 		61D24CC526882B6400B799C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D24CC726882B6400B799C2 /* Localizable.strings */; };
@@ -48,6 +54,12 @@
 /* Begin PBXFileReference section */
 		610AFE3D269A9E6B00F55A96 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		610AFE41269A9EB600F55A96 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		610AFE43269BBFE900F55A96 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		610AFE45269BC01500F55A96 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		610AFE47269BC03100F55A96 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		610AFE49269BC06200F55A96 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		610AFE4B269BCAB900F55A96 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		610AFE4D269BCC0000F55A96 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		61D24CBD2688182D00B799C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		61D24CBF2688198500B799C2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		61D24CC626882B6400B799C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -105,6 +117,10 @@
 		610AFE3F269A9E7500F55A96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				610AFE43269BBFE900F55A96 /* TabBarViewController.swift */,
+				610AFE45269BC01500F55A96 /* FeedViewController.swift */,
+				610AFE47269BC03100F55A96 /* SearchViewController.swift */,
+				610AFE49269BC06200F55A96 /* ActionsViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -168,6 +184,8 @@
 			children = (
 				61DA39CC2688164C006DDA44 /* BaseViewController.swift */,
 				61D24CE7268964F900B799C2 /* BaseView.swift */,
+				610AFE4B269BCAB900F55A96 /* BaseButton.swift */,
+				610AFE4D269BCC0000F55A96 /* BaseTextField.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -453,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D24CF02689669000B799C2 /* DescriptionItem.swift in Sources */,
+				610AFE46269BC01500F55A96 /* FeedViewController.swift in Sources */,
 				61DA39CA2688162D006DDA44 /* FirstViewController.swift in Sources */,
 				61D24CD426882C0000B799C2 /* Formatters.swift in Sources */,
 				61DA39CF26881682006DDA44 /* DescriptionViewController.swift in Sources */,
@@ -461,10 +480,13 @@
 				61DD219E265DE7CE00149815 /* NetworkManager.swift in Sources */,
 				61D24CD226882BC200B799C2 /* LanguageManager.swift in Sources */,
 				61D24CD626882C1C00B799C2 /* Bundle-AppLocale.swift in Sources */,
+				610AFE4A269BC06200F55A96 /* ActionsViewController.swift in Sources */,
 				61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */,
+				610AFE44269BBFE900F55A96 /* TabBarViewController.swift in Sources */,
 				61D24CE226882D2900B799C2 /* StorageManager.swift in Sources */,
 				61DD2185265DE71000149815 /* ViewController.swift in Sources */,
 				61DA39D126881699006DDA44 /* SignInViewController.swift in Sources */,
+				610AFE4C269BCAB900F55A96 /* BaseButton.swift in Sources */,
 				61D24CEC2689657500B799C2 /* NSObject + Extension.swift in Sources */,
 				61DD2181265DE71000149815 /* AppDelegate.swift in Sources */,
 				61D24CDF26882C8500B799C2 /* UserData.swift in Sources */,
@@ -472,6 +494,8 @@
 				61D24CDA26882C4800B799C2 /* UserDefaults-AppLocale.swift in Sources */,
 				61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */,
 				61DD2183265DE71000149815 /* SceneDelegate.swift in Sources */,
+				610AFE48269BC03100F55A96 /* SearchViewController.swift in Sources */,
+				610AFE4E269BCC0000F55A96 /* BaseTextField.swift in Sources */,
 				61D24CEA2689654700B799C2 /* UIView + Extensions.swift in Sources */,
 				61D24CE8268964F900B799C2 /* BaseView.swift in Sources */,
 				610AFE42269A9EB600F55A96 /* ProfileViewController.swift in Sources */,
@@ -637,13 +661,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8R8FW2V6B4;
+				DEVELOPMENT_TEAM = 3RZFH7U359;
 				INFOPLIST_FILE = Diploma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.markopolietaiev.Diploma;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markopolietaiev.Diplomapjatk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -657,13 +681,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8R8FW2V6B4;
+				DEVELOPMENT_TEAM = 3RZFH7U359;
 				INFOPLIST_FILE = Diploma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.markopolietaiev.Diploma;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markopolietaiev.Diplomapjatk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
