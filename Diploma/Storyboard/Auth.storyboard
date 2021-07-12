@@ -60,7 +60,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QyA-57-UJV"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="QyA-57-UJV" firstAttribute="trailing" secondItem="I4h-Xf-ubM" secondAttribute="trailing" constant="45" id="2xk-Qw-oXo"/>
                             <constraint firstItem="QyA-57-UJV" firstAttribute="bottom" secondItem="I4h-Xf-ubM" secondAttribute="bottom" constant="35" id="BSH-jS-3SI"/>
@@ -93,7 +93,7 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="x3c-M6-Nt3">
                                 <rect key="frame" x="146" y="784" width="122" height="28"/>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-I1-0zd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-I1-0zd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -111,7 +111,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sW3-Yl-XeD"/>
-                        <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="sW3-Yl-XeD" firstAttribute="bottom" secondItem="x3c-M6-Nt3" secondAttribute="bottom" constant="50" id="8yu-lG-O3u"/>
                             <constraint firstItem="x3c-M6-Nt3" firstAttribute="centerX" secondItem="Ng9-6d-HeT" secondAttribute="centerX" id="UlS-zP-ecm"/>
@@ -203,7 +203,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pl6-67-7LC"/>
-                        <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="GJq-D0-YSr" firstAttribute="top" secondItem="Pl6-67-7LC" secondAttribute="top" constant="35" id="2Yd-B8-5Z9"/>
                             <constraint firstItem="EZB-NH-ANx" firstAttribute="leading" secondItem="Pl6-67-7LC" secondAttribute="leading" constant="35" id="6Qe-CS-n26"/>
@@ -361,7 +361,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uKi-Fm-gRZ"/>
-                        <color key="backgroundColor" red="0.01176470588" green="0.015686274510000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="XaC-ej-TCd" firstAttribute="leading" secondItem="uKi-Fm-gRZ" secondAttribute="leading" constant="15" id="26p-hj-9xE"/>
                             <constraint firstItem="uKi-Fm-gRZ" firstAttribute="trailing" secondItem="Blz-DA-YvX" secondAttribute="trailing" id="9xN-Gt-YGy"/>
@@ -393,6 +393,9 @@
         <image name="welcomeImage" width="660" height="570"/>
         <namedColor name="Color">
             <color red="0.792156862745098" green="0.94117647058823528" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundColor">
+            <color red="0.011764705882352941" green="0.015686274509803921" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="buttonColor">
             <color red="0.792156862745098" green="0.94117647058823528" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

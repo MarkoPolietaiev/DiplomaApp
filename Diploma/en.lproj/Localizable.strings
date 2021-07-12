@@ -5,3 +5,29 @@
   Created by Marko Polietaiev on 2021-06-26.
   
 */
+
+// First View Controller
+"start" = "Start";
+"Welcome! We are happy to see you here";
+
+// Description View Controller
+"slide1.text" = "";
+"slide2.text" = "";
+"slide3.text" = "";
+"slide4.text" = "";
+"slide5.text" = "";
+"lets.try" = "Lets Try!";
+
+// Sign In View Controller
+"log.in" = "Log In";
+"no.account" = "I don't have an account";
+"username" = "Username";
+"password" = "Password";
+
+// Sign Up View Controller
+"have.account" = "I have an account";
+"email" = "Email";
+"confirm.email" = "Confirm email";
+"repeat.password" = "Repeat password";
+"create.account" = "Create Account";
+

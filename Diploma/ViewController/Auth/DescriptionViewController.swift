@@ -33,13 +33,25 @@ class DescriptionViewController: BaseViewController {
         slide1.setupWithItem(item1)
         
         let slide2 = DescriptionView()
-        let item2 = DescriptionItem(title: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ", image: R.image.welcomeImage() ?? UIImage())
-        slide2.setupWithItem(item2, isLast: true)
-        slide2.action = {
+        let item2 = DescriptionItem(title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", image: R.image.welcomeImage() ?? UIImage())
+        slide2.setupWithItem(item2)
+        
+        let slide3 = DescriptionView()
+        let item3 = DescriptionItem(title: "Lorem Ipsum is simply dummy text of the printing andard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", image: R.image.welcomeImage() ?? UIImage())
+        slide3.setupWithItem(item3)
+        
+        let slide4 = DescriptionView()
+        let item4 = DescriptionItem(title: "e printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra book.", image: R.image.welcomeImage() ?? UIImage())
+        slide4.setupWithItem(item4)
+        
+        let slide5 = DescriptionView()
+        let item5 = DescriptionItem(title: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ", image: R.image.welcomeImage() ?? UIImage())
+        slide5.setupWithItem(item5, isLast: true)
+        slide5.action = {
             self.goToSignUp()
         }
         
-        return [slide1, slide2]
+        return [slide1, slide2, slide3, slide4, slide5]
     }
     
     private func setupSlideScrollView(_ slides: [DescriptionView]) {
@@ -75,12 +87,6 @@ extension DescriptionViewController: UIScrollViewDelegate {
         let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
         let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
         
-        
-        /*
-         * below code changes the background color of view on paging the scrollview
-         */
-//        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
-        
     
         /*
          * below code scales the imageview on paging the scrollview
@@ -90,18 +96,17 @@ extension DescriptionViewController: UIScrollViewDelegate {
         if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
             slides[0].imageView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
             slides[1].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
+        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
+            slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
+            slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
+
+        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
+            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
+            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
+
+        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
+            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
+            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
         }
-//        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-//            slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-//
-//        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-//
-//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-//            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-//        }
     }
 }
