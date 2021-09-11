@@ -1,11 +1,15 @@
 PODS:
   - Alamofire (5.4.2)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - ChameleonFramework/Swift (from `https://github.com/luckychris/Chameleon.git`)
   - R.swift
 
 SPEC REPOS:
@@ -14,11 +18,21 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/luckychris/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 347fcaa815f60281f9fbd32620c42d384dfc9b44
+    :git: https://github.com/luckychris/Chameleon.git
+
 SPEC CHECKSUMS:
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
 
-PODFILE CHECKSUM: 95d4ef82ee898f70e7793bad191c823278df74ed
+PODFILE CHECKSUM: 0153c764beee817cacb148b47a845d7d44fc0fd8
 
 COCOAPODS: 1.10.1

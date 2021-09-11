@@ -32,6 +32,9 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
-        
+        //if registration successfull
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
+        sceneDelegate.window?.rootViewController = vc
     }
 }

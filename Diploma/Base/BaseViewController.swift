@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class BaseViewController: UIViewController {
 
@@ -16,14 +17,18 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         self.applyGradient()
     }
     
     private func applyGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.init(hex: "#03045E") ?? .white, UIColor.init(hex: "03045E", alpha: 0.23) ?? .white]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        let colors = [UIColor.init(hex: "#03045E") ?? .white, UIColor.init(hex: "#02031C") ?? .white]
+        self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: colors)
     }
     
     private func setupNavigationBarView() {

@@ -29,7 +29,10 @@ class SignInViewController: BaseViewController {
     }
 
     @IBAction func logInButtonPressed(_ sender: Any) {
-        // log in
+        // if log in successfully
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
+        sceneDelegate.window?.rootViewController = vc
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
