@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationTableViewCell" rowHeight="150" id="KGk-i7-Jjw" customClass="NotificationTableViewCell" customModule="Diploma" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="629" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="629" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sBA-IR-2db">
+                        <rect key="frame" x="10" y="10" width="130" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="sBA-IR-2db" secondAttribute="height" multiplier="1:1" id="Yro-mY-4a4"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someone liked your post" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7L-pu-KRr">
+                        <rect key="frame" x="155" y="65.5" width="439" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="sBA-IR-2db" secondAttribute="bottom" constant="10" id="0LB-D0-Af1"/>
+                    <constraint firstItem="V7L-pu-KRr" firstAttribute="leading" secondItem="sBA-IR-2db" secondAttribute="trailing" constant="15" id="2Js-m8-2Rq"/>
+                    <constraint firstItem="V7L-pu-KRr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6S6-Xr-W0P"/>
+                    <constraint firstItem="sBA-IR-2db" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="aWG-FI-FSu"/>
+                    <constraint firstItem="sBA-IR-2db" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="efV-Qy-jLn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="V7L-pu-KRr" secondAttribute="trailing" constant="15" id="uzz-Wy-HeR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="_imageView" destination="sBA-IR-2db" id="mFa-xl-FPx"/>
+                <outlet property="titleLabel" destination="V7L-pu-KRr" id="Gtw-uQ-MtU"/>
+            </connections>
+            <point key="canvasLocation" x="361.59420289855075" y="188.16964285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -31,10 +31,6 @@ class SearchViewController: BaseViewController {
         layout.flowDelegate = self
         self.collectionView.collectionViewLayout = layout
     }
-    
-    private func goToPost(_ post: Post) {
-        
-    }
 
 }
 
@@ -48,7 +44,7 @@ extension SearchViewController: UICollectionViewDataSource {
         let item = self.posts[indexPath.item]
         cell.setupWithPost(item)
         cell.selectAction = {
-            self.goToPost(item)
+            self.goToPostDetail(item)
         }
         return cell
     }

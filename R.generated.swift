@@ -542,12 +542,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `DescriptionView`.
     static let descriptionView = _R.nib._DescriptionView()
     /// Nib `FeedTableViewCell`.
     static let feedTableViewCell = _R.nib._FeedTableViewCell()
+    /// Nib `NotificationTableViewCell`.
+    static let notificationTableViewCell = _R.nib._NotificationTableViewCell()
     /// Nib `SearchCollectionViewCell`.
     static let searchCollectionViewCell = _R.nib._SearchCollectionViewCell()
 
@@ -568,6 +570,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "NotificationTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.notificationTableViewCell) instead")
+    static func notificationTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.notificationTableViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "SearchCollectionViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.searchCollectionViewCell) instead")
     static func searchCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -583,6 +593,10 @@ struct R: Rswift.Validatable {
       return R.nib.feedTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FeedTableViewCell
     }
 
+    static func notificationTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NotificationTableViewCell? {
+      return R.nib.notificationTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NotificationTableViewCell
+    }
+
     static func searchCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SearchCollectionViewCell? {
       return R.nib.searchCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCollectionViewCell
     }
@@ -590,10 +604,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `FeedTableViewCell`.
     static let feedTableViewCell: Rswift.ReuseIdentifier<FeedTableViewCell> = Rswift.ReuseIdentifier(identifier: "FeedTableViewCell")
+    /// Reuse identifier `NotificationTableViewCell`.
+    static let notificationTableViewCell: Rswift.ReuseIdentifier<NotificationTableViewCell> = Rswift.ReuseIdentifier(identifier: "NotificationTableViewCell")
     /// Reuse identifier `SearchCollectionViewCell`.
     static let searchCollectionViewCell: Rswift.ReuseIdentifier<SearchCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "SearchCollectionViewCell")
 
@@ -992,6 +1008,20 @@ struct _R: Rswift.Validatable {
           if UIKit.UIColor(named: "buttonColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'buttonColor' is used in nib 'FeedTableViewCell', but couldn't be loaded.") }
           if UIKit.UIColor(named: "titleColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'titleColor' is used in nib 'FeedTableViewCell', but couldn't be loaded.") }
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _NotificationTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = NotificationTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "NotificationTableViewCell"
+      let name = "NotificationTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> NotificationTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NotificationTableViewCell
       }
 
       fileprivate init() {}

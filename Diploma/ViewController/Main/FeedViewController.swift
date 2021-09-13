@@ -23,13 +23,6 @@ class FeedViewController: BaseViewController {
         self.populateData()
         self.tableView.reloadData()
     }
-    
-    private func goToPostDetail(_ post: Post) {
-        if let postViewController = R.storyboard.main.postViewController() {
-            postViewController.post = post
-            self.navigationController?.pushViewController(postViewController, animated: true)
-        }
-    }
 }
 
 extension FeedViewController: UITableViewDataSource {

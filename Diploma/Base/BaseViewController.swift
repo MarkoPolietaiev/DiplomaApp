@@ -45,4 +45,12 @@ class BaseViewController: UIViewController {
     func showNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    func goToPostDetail(_ post: Post) {
+        if let postViewController = R.storyboard.main.postViewController() {
+            postViewController.post = post
+            self.navigationController?.pushViewController(postViewController, animated: true)
+        }
+    }
+
 }

@@ -91,11 +91,30 @@
                     <view key="view" contentMode="scaleToFill" id="w3O-Uh-ZY7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wLy-CI-xFR">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="T7P-Zn-xxI" id="aN0-vH-LTf"/>
+                                    <outlet property="delegate" destination="T7P-Zn-xxI" id="8mA-xO-FyI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CUL-ag-rOS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CUL-ag-rOS" firstAttribute="bottom" secondItem="wLy-CI-xFR" secondAttribute="bottom" id="F68-6u-tFg"/>
+                            <constraint firstItem="wLy-CI-xFR" firstAttribute="leading" secondItem="CUL-ag-rOS" secondAttribute="leading" id="Hwg-LG-kPB"/>
+                            <constraint firstItem="CUL-ag-rOS" firstAttribute="trailing" secondItem="wLy-CI-xFR" secondAttribute="trailing" id="P7D-Y5-7Zo"/>
+                            <constraint firstItem="wLy-CI-xFR" firstAttribute="top" secondItem="CUL-ag-rOS" secondAttribute="top" id="f1a-1w-jtF"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="likes" id="4sk-PL-Iv2"/>
                     <navigationItem key="navigationItem" id="c1K-ID-cSd"/>
+                    <connections>
+                        <outlet property="tableView" destination="wLy-CI-xFR" id="z8N-sT-BZr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7w-jl-gdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

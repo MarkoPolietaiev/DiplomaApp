@@ -23,6 +23,9 @@
 		616FFAAF26EC788900C86A44 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAAE26EC788900C86A44 /* PostViewController.swift */; };
 		616FFAB326EEF06200C86A44 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAB126EEF06200C86A44 /* SearchCollectionViewCell.swift */; };
 		616FFAB426EEF06200C86A44 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616FFAB226EEF06200C86A44 /* SearchCollectionViewCell.xib */; };
+		616FFAB626EF0EEF00C86A44 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAB526EF0EEF00C86A44 /* Notification.swift */; };
+		616FFABA26EF0F5700C86A44 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAB826EF0F5700C86A44 /* NotificationTableViewCell.swift */; };
+		616FFABB26EF0F5700C86A44 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616FFAB926EF0F5700C86A44 /* NotificationTableViewCell.xib */; };
 		61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBD2688182D00B799C2 /* R.generated.swift */; };
 		61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBF2688198500B799C2 /* UIColor+Extension.swift */; };
 		61D24CC526882B6400B799C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D24CC726882B6400B799C2 /* Localizable.strings */; };
@@ -76,6 +79,9 @@
 		616FFAAE26EC788900C86A44 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		616FFAB126EEF06200C86A44 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		616FFAB226EEF06200C86A44 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		616FFAB526EF0EEF00C86A44 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		616FFAB826EF0F5700C86A44 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		616FFAB926EF0F5700C86A44 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		61D24CBD2688182D00B799C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		61D24CBF2688198500B799C2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		61D24CC626882B6400B799C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -166,6 +172,15 @@
 				616FFAB226EEF06200C86A44 /* SearchCollectionViewCell.xib */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		616FFAB726EF0F3C00C86A44 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				616FFAB826EF0F5700C86A44 /* NotificationTableViewCell.swift */,
+				616FFAB926EF0F5700C86A44 /* NotificationTableViewCell.xib */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		61D24CD026882BAD00B799C2 /* Locale */ = {
@@ -302,6 +317,7 @@
 		61DD2196265DE77C00149815 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				616FFAB726EF0F3C00C86A44 /* Notifications */,
 				616FFAB026EEF04900C86A44 /* Search */,
 				616FFAA526E9CE5800C86A44 /* Feed */,
 				61D24CE3268964BB00B799C2 /* Auth */,
@@ -327,6 +343,7 @@
 				616FFAA326E9CE3600C86A44 /* Post.swift */,
 				616FFAAA26E9D0C600C86A44 /* User.swift */,
 				616FFAAC26E9D1BB00C86A44 /* Skill.swift */,
+				616FFAB526EF0EEF00C86A44 /* Notification.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -435,6 +452,7 @@
 				61DD219B265DE79C00149815 /* Auth.storyboard in Resources */,
 				61D24CEE268965C400B799C2 /* DescriptionView.xib in Resources */,
 				616FFAB426EEF06200C86A44 /* SearchCollectionViewCell.xib in Resources */,
+				616FFABB26EF0F5700C86A44 /* NotificationTableViewCell.xib in Resources */,
 				61DD218D265DE71700149815 /* LaunchScreen.storyboard in Resources */,
 				61DD218A265DE71700149815 /* Assets.xcassets in Resources */,
 				616FFAA926E9CE6D00C86A44 /* FeedTableViewCell.xib in Resources */,
@@ -524,8 +542,10 @@
 				616FFAAD26E9D1BB00C86A44 /* Skill.swift in Sources */,
 				61DD219E265DE7CE00149815 /* NetworkManager.swift in Sources */,
 				61D24CD226882BC200B799C2 /* LanguageManager.swift in Sources */,
+				616FFAB626EF0EEF00C86A44 /* Notification.swift in Sources */,
 				61D24CD626882C1C00B799C2 /* Bundle-AppLocale.swift in Sources */,
 				616FFAA826E9CE6D00C86A44 /* FeedTableViewCell.swift in Sources */,
+				616FFABA26EF0F5700C86A44 /* NotificationTableViewCell.swift in Sources */,
 				610AFE4A269BC06200F55A96 /* ActionsViewController.swift in Sources */,
 				616FFAA426E9CE3600C86A44 /* Post.swift in Sources */,
 				61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */,
