@@ -25,6 +25,13 @@
                             <action selector="buttonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VdA-FS-KTN"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4n-BX-qGg">
+                        <rect key="frame" x="4" y="297" width="285" height="20"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <size key="shadowOffset" width="2" height="2"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -34,14 +41,18 @@
                 <constraint firstAttribute="trailing" secondItem="PLF-cd-DC3" secondAttribute="trailing" id="22c-wM-nSK"/>
                 <constraint firstAttribute="bottom" secondItem="PLF-cd-DC3" secondAttribute="bottom" id="6Ug-vJ-moN"/>
                 <constraint firstItem="PLF-cd-DC3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8Tq-oG-ob2"/>
+                <constraint firstItem="n4n-BX-qGg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="A0f-7b-2DO"/>
                 <constraint firstItem="4JO-kc-0V1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NU9-xa-Esz"/>
                 <constraint firstItem="4JO-kc-0V1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UjX-iW-6CE"/>
+                <constraint firstAttribute="trailing" secondItem="n4n-BX-qGg" secondAttribute="trailing" constant="4" id="dL5-6z-TC2"/>
+                <constraint firstAttribute="bottom" secondItem="n4n-BX-qGg" secondAttribute="bottom" constant="2" id="ifJ-ae-dpL"/>
                 <constraint firstAttribute="trailing" secondItem="4JO-kc-0V1" secondAttribute="trailing" id="pSR-6U-IJ8"/>
                 <constraint firstItem="PLF-cd-DC3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x4i-IG-vcL"/>
             </constraints>
             <size key="customSize" width="293" height="319"/>
             <connections>
                 <outlet property="imageView" destination="4JO-kc-0V1" id="Uk6-Bi-ibx"/>
+                <outlet property="titleLabel" destination="n4n-BX-qGg" id="hLI-LF-RMe"/>
             </connections>
             <point key="canvasLocation" x="307.97101449275362" y="242.74553571428569"/>
         </collectionViewCell>
