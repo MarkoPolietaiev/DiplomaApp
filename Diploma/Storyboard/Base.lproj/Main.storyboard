@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <scene sceneID="zP2-C4-l60">
             <objects>
                 <navigationController id="iac-d4-5XT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search" id="bDO-v2-4mI"/>
+                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchSelected" id="bDO-v2-4mI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sqb-lv-pdh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -32,11 +33,37 @@
                     <view key="view" contentMode="scaleToFill" id="Wfb-cP-uL0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dtd-Co-94r">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0d2-kT-Abd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qbm-aU-AgE" id="643-HC-jj7"/>
+                                    <outlet property="delegate" destination="Qbm-aU-AgE" id="AE2-UG-ps3"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pUe-dB-2Mh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dtd-Co-94r" firstAttribute="top" secondItem="pUe-dB-2Mh" secondAttribute="top" id="7Y0-Dr-vcX"/>
+                            <constraint firstItem="dtd-Co-94r" firstAttribute="leading" secondItem="pUe-dB-2Mh" secondAttribute="leading" id="UJB-VC-Se0"/>
+                            <constraint firstItem="pUe-dB-2Mh" firstAttribute="trailing" secondItem="dtd-Co-94r" secondAttribute="trailing" id="gde-Xe-s8w"/>
+                            <constraint firstItem="pUe-dB-2Mh" firstAttribute="bottom" secondItem="dtd-Co-94r" secondAttribute="bottom" id="ybr-4n-DZv"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" id="a09-T1-uAI"/>
                     <navigationItem key="navigationItem" id="gHG-Pg-o7o"/>
+                    <connections>
+                        <outlet property="collectionView" destination="dtd-Co-94r" id="Are-OQ-c9Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yX-Li-bcr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,7 +116,7 @@
         <scene sceneID="hN1-Rz-DQs">
             <objects>
                 <navigationController id="522-T1-aJQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="FHO-3B-gwW"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="homeSelected" id="FHO-3B-gwW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eM3-iD-9RC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -112,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dez-LB-Qxi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="73g-Bn-uF6" id="kjx-fz-xDI"/>
@@ -123,10 +150,10 @@
                         <viewLayoutGuide key="safeArea" id="TsG-KN-1hq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TsG-KN-1hq" firstAttribute="bottom" secondItem="dez-LB-Qxi" secondAttribute="bottom" id="NJg-jQ-0sH"/>
+                            <constraint firstAttribute="bottom" secondItem="dez-LB-Qxi" secondAttribute="bottom" id="NJg-jQ-0sH"/>
                             <constraint firstItem="TsG-KN-1hq" firstAttribute="trailing" secondItem="dez-LB-Qxi" secondAttribute="trailing" id="W0V-Zi-WmY"/>
                             <constraint firstItem="dez-LB-Qxi" firstAttribute="leading" secondItem="TsG-KN-1hq" secondAttribute="leading" id="mjF-cd-sSt"/>
-                            <constraint firstItem="dez-LB-Qxi" firstAttribute="top" secondItem="TsG-KN-1hq" secondAttribute="top" id="r5R-q8-Uv3"/>
+                            <constraint firstItem="dez-LB-Qxi" firstAttribute="top" secondItem="Onc-zK-9al" secondAttribute="top" id="r5R-q8-Uv3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" id="Ytr-8B-jq1"/>
@@ -142,10 +169,11 @@
         <scene sceneID="DEv-mi-ZV4">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pe8-D0-nZ9" customClass="TabBarViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N9c-vZ-bIk">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" itemSpacing="5" itemWidth="65" id="N9c-vZ-bIk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="backgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="522-T1-aJQ" kind="relationship" relationship="viewControllers" id="ux7-s0-xfi"/>
@@ -162,7 +190,7 @@
         <scene sceneID="HBW-xE-lSS">
             <objects>
                 <navigationController id="zMg-lx-6AG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="likes" id="uTZ-tx-ftg"/>
+                    <tabBarItem key="tabBarItem" title="" image="likes" selectedImage="likesSelected" id="uTZ-tx-ftg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cz0-GG-Ut0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -179,7 +207,7 @@
         <scene sceneID="5Ue-9D-UEu">
             <objects>
                 <navigationController id="ZeC-uC-JJV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="profile" id="8iw-TY-ihH"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="profileSelected" id="8iw-TY-ihH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yt0-mM-xnI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -194,10 +222,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="30" height="30"/>
-        <image name="likes" width="35" height="35"/>
-        <image name="profile" width="22" height="22"/>
-        <image name="search" width="35" height="35"/>
+        <image name="home" width="25" height="25"/>
+        <image name="homeSelected" width="25" height="25"/>
+        <image name="likes" width="25" height="25"/>
+        <image name="likesSelected" width="25" height="25"/>
+        <image name="profile" width="25" height="31"/>
+        <image name="profileSelected" width="25" height="31"/>
+        <image name="search" width="25" height="25"/>
+        <image name="searchSelected" width="25" height="25"/>
+        <namedColor name="backgroundColor">
+            <color red="0.011764705882352941" green="0.015686274509803921" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

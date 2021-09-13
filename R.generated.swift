@@ -244,10 +244,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 25 images.
+  /// This `R.image` struct is generated, and contains static references to 29 images.
   struct image {
+    /// Image `homeSelected`.
+    static let homeSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "homeSelected")
     /// Image `home`.
     static let home = Rswift.ImageResource(bundle: R.hostingBundle, name: "home")
+    /// Image `likesSelected`.
+    static let likesSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "likesSelected")
     /// Image `likes`.
     static let likes = Rswift.ImageResource(bundle: R.hostingBundle, name: "likes")
     /// Image `logInImage`.
@@ -266,8 +270,12 @@ struct R: Rswift.Validatable {
     static let post5 = Rswift.ImageResource(bundle: R.hostingBundle, name: "post5")
     /// Image `post6`.
     static let post6 = Rswift.ImageResource(bundle: R.hostingBundle, name: "post6")
+    /// Image `profileSelected`.
+    static let profileSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "profileSelected")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
+    /// Image `searchSelected`.
+    static let searchSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "searchSelected")
     /// Image `search`.
     static let search = Rswift.ImageResource(bundle: R.hostingBundle, name: "search")
     /// Image `signUpImage`.
@@ -305,9 +313,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "homeSelected", bundle: ..., traitCollection: ...)`
+    static func homeSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.homeSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "likes", bundle: ..., traitCollection: ...)`
     static func likes(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.likes, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "likesSelected", bundle: ..., traitCollection: ...)`
+    static func likesSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.likesSelected, compatibleWith: traitCollection)
     }
     #endif
 
@@ -375,9 +397,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "profileSelected", bundle: ..., traitCollection: ...)`
+    static func profileSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "search", bundle: ..., traitCollection: ...)`
     static func search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.search, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "searchSelected", bundle: ..., traitCollection: ...)`
+    static func searchSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.searchSelected, compatibleWith: traitCollection)
     }
     #endif
 
@@ -506,12 +542,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `DescriptionView`.
     static let descriptionView = _R.nib._DescriptionView()
     /// Nib `FeedTableViewCell`.
     static let feedTableViewCell = _R.nib._FeedTableViewCell()
+    /// Nib `SearchCollectionViewCell`.
+    static let searchCollectionViewCell = _R.nib._SearchCollectionViewCell()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "DescriptionView", in: bundle)`
@@ -529,6 +567,14 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SearchCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.searchCollectionViewCell) instead")
+    static func searchCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.searchCollectionViewCell)
+    }
+    #endif
+
     static func descriptionView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.descriptionView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -537,13 +583,19 @@ struct R: Rswift.Validatable {
       return R.nib.feedTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FeedTableViewCell
     }
 
+    static func searchCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SearchCollectionViewCell? {
+      return R.nib.searchCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCollectionViewCell
+    }
+
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `FeedTableViewCell`.
     static let feedTableViewCell: Rswift.ReuseIdentifier<FeedTableViewCell> = Rswift.ReuseIdentifier(identifier: "FeedTableViewCell")
+    /// Reuse identifier `SearchCollectionViewCell`.
+    static let searchCollectionViewCell: Rswift.ReuseIdentifier<SearchCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "SearchCollectionViewCell")
 
     fileprivate init() {}
   }
@@ -945,6 +997,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _SearchCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SearchCollectionViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "SearchCollectionViewCell"
+      let name = "SearchCollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SearchCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCollectionViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
   #endif
@@ -1064,10 +1130,15 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "home", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'home' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "homeSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homeSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "likes", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likes' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "likesSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likesSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "searchSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'searchSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main', but couldn't be loaded.") }
         }
         if _R.storyboard.main().actionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'actionsViewController' could not be loaded from storyboard 'Main' as 'ActionsViewController'.") }
         if _R.storyboard.main().feedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'feedViewController' could not be loaded from storyboard 'Main' as 'FeedViewController'.") }

@@ -21,6 +21,8 @@
 		616FFAAB26E9D0C600C86A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAAA26E9D0C600C86A44 /* User.swift */; };
 		616FFAAD26E9D1BB00C86A44 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAAC26E9D1BB00C86A44 /* Skill.swift */; };
 		616FFAAF26EC788900C86A44 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAAE26EC788900C86A44 /* PostViewController.swift */; };
+		616FFAB326EEF06200C86A44 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAB126EEF06200C86A44 /* SearchCollectionViewCell.swift */; };
+		616FFAB426EEF06200C86A44 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616FFAB226EEF06200C86A44 /* SearchCollectionViewCell.xib */; };
 		61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBD2688182D00B799C2 /* R.generated.swift */; };
 		61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBF2688198500B799C2 /* UIColor+Extension.swift */; };
 		61D24CC526882B6400B799C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D24CC726882B6400B799C2 /* Localizable.strings */; };
@@ -72,6 +74,8 @@
 		616FFAAA26E9D0C600C86A44 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		616FFAAC26E9D1BB00C86A44 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		616FFAAE26EC788900C86A44 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		616FFAB126EEF06200C86A44 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		616FFAB226EEF06200C86A44 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		61D24CBD2688182D00B799C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		61D24CBF2688198500B799C2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		61D24CC626882B6400B799C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -153,6 +157,15 @@
 				616FFAA726E9CE6D00C86A44 /* FeedTableViewCell.xib */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		616FFAB026EEF04900C86A44 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				616FFAB126EEF06200C86A44 /* SearchCollectionViewCell.swift */,
+				616FFAB226EEF06200C86A44 /* SearchCollectionViewCell.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		61D24CD026882BAD00B799C2 /* Locale */ = {
@@ -289,6 +302,7 @@
 		61DD2196265DE77C00149815 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				616FFAB026EEF04900C86A44 /* Search */,
 				616FFAA526E9CE5800C86A44 /* Feed */,
 				61D24CE3268964BB00B799C2 /* Auth */,
 			);
@@ -420,6 +434,7 @@
 				61D24CCE26882B8000B799C2 /* pl.lproj in Resources */,
 				61DD219B265DE79C00149815 /* Auth.storyboard in Resources */,
 				61D24CEE268965C400B799C2 /* DescriptionView.xib in Resources */,
+				616FFAB426EEF06200C86A44 /* SearchCollectionViewCell.xib in Resources */,
 				61DD218D265DE71700149815 /* LaunchScreen.storyboard in Resources */,
 				61DD218A265DE71700149815 /* Assets.xcassets in Resources */,
 				616FFAA926E9CE6D00C86A44 /* FeedTableViewCell.xib in Resources */,
@@ -498,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				616FFAAF26EC788900C86A44 /* PostViewController.swift in Sources */,
+				616FFAB326EEF06200C86A44 /* SearchCollectionViewCell.swift in Sources */,
 				61D24CF02689669000B799C2 /* DescriptionItem.swift in Sources */,
 				610AFE46269BC01500F55A96 /* FeedViewController.swift in Sources */,
 				61DA39CA2688162D006DDA44 /* FirstViewController.swift in Sources */,

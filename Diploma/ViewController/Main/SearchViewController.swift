@@ -9,21 +9,39 @@ import UIKit
 
 class SearchViewController: BaseViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var posts: [Post] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func goToPost(_ post: Post) {
+        
     }
-    */
 
+}
+
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.searchCollectionViewCell, for: indexPath)!
+        let item = self.posts[indexPath.item]
+        cell.setupWithPost(item)
+        cell.selectAction = {
+            self.goToPost(item)
+        }
+        return cell
+    }
+    
+    
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    
 }
