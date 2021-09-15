@@ -42,6 +42,9 @@ extension ActionsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.notificationTableViewCell, for: indexPath)!
         let item = self.notifications[indexPath.row]
         cell.setupWithNotification(item)
+        cell.selectAction = {
+            
+        }
         return cell
     }
     
@@ -49,11 +52,11 @@ extension ActionsViewController: UITableViewDataSource {
 
 private extension ActionsViewController {
     func populateData() {
-        let notification1 = Notification(title: "Someone liked your post")
-        let notification2 = Notification(title: "Someone subscribed on your programming skill aim")
-        let notification3 = Notification(title: "Someone liked your comment")
-        let notification4 = Notification(title: "Someone subscribed on your skating skill aim")
-        let notification5 = Notification(title: "Someone subscribed on your fast reading skill aim")
+        let notification1 = Notification(title: "Someone liked your post", image: R.image.user1()!)
+        let notification2 = Notification(title: "Someone subscribed on your programming skill aim", image: R.image.user2()!)
+        let notification3 = Notification(title: "Someone liked your comment...", image: R.image.user3()!)
+        let notification4 = Notification(title: "Someone subscribed on your skating skill aim", image: R.image.user2()!)
+        let notification5 = Notification(title: "Someone subscribed on your fast reading skill aim", image: R.image.user1()!)
         
         self.notifications.append(contentsOf: [notification1,notification2,notification3,notification4,notification5])
     }

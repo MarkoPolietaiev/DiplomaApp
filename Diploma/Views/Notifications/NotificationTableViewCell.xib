@@ -16,26 +16,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="629" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sBA-IR-2db">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sBA-IR-2db">
                         <rect key="frame" x="10" y="10" width="130" height="130"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="sBA-IR-2db" secondAttribute="height" multiplier="1:1" id="Yro-mY-4a4"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someone liked your post" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7L-pu-KRr">
-                        <rect key="frame" x="155" y="65.5" width="439" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <rect key="frame" x="155" y="66.5" width="439" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ie-cH-TpD">
+                        <rect key="frame" x="0.0" y="0.0" width="629" height="150"/>
+                        <connections>
+                            <action selector="buttonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="y6W-9a-1FC"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sBA-IR-2db" secondAttribute="bottom" constant="10" id="0LB-D0-Af1"/>
                     <constraint firstItem="V7L-pu-KRr" firstAttribute="leading" secondItem="sBA-IR-2db" secondAttribute="trailing" constant="15" id="2Js-m8-2Rq"/>
                     <constraint firstItem="V7L-pu-KRr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6S6-Xr-W0P"/>
+                    <constraint firstAttribute="bottom" secondItem="2Ie-cH-TpD" secondAttribute="bottom" id="A5P-xX-Fi5"/>
+                    <constraint firstAttribute="trailing" secondItem="2Ie-cH-TpD" secondAttribute="trailing" id="Dgf-Hd-BLN"/>
+                    <constraint firstItem="2Ie-cH-TpD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="TyV-fb-EN3"/>
                     <constraint firstItem="sBA-IR-2db" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="aWG-FI-FSu"/>
                     <constraint firstItem="sBA-IR-2db" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="efV-Qy-jLn"/>
+                    <constraint firstItem="2Ie-cH-TpD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hoo-vS-WwU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="V7L-pu-KRr" secondAttribute="trailing" constant="15" id="uzz-Wy-HeR"/>
                 </constraints>
             </tableViewCellContentView>

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 struct Notification {
     var title: String
+    var image: UIImage
 }
