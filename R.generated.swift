@@ -542,7 +542,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `DescriptionView`.
     static let descriptionView = _R.nib._DescriptionView()
@@ -552,6 +552,8 @@ struct R: Rswift.Validatable {
     static let notificationTableViewCell = _R.nib._NotificationTableViewCell()
     /// Nib `SearchCollectionViewCell`.
     static let searchCollectionViewCell = _R.nib._SearchCollectionViewCell()
+    /// Nib `StatsView`.
+    static let statsView = _R.nib._StatsView()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "DescriptionView", in: bundle)`
@@ -585,6 +587,14 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "StatsView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.statsView) instead")
+    static func statsView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.statsView)
+    }
+    #endif
+
     static func descriptionView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.descriptionView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -599,6 +609,10 @@ struct R: Rswift.Validatable {
 
     static func searchCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SearchCollectionViewCell? {
       return R.nib.searchCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCollectionViewCell
+    }
+
+    static func statsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.statsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     fileprivate init() {}
@@ -1036,6 +1050,17 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SearchCollectionViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCollectionViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _StatsView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "StatsView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

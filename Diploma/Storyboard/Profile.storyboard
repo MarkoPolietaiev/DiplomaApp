@@ -15,9 +15,60 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncr-gm-VI1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aaq-wE-qFE">
+                                        <rect key="frame" x="20" y="20" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="aaq-wE-qFE" secondAttribute="height" multiplier="1:1" id="eem-L4-15d"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4eS-k1-9wK">
+                                        <rect key="frame" x="140" y="20" width="254" height="80"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLu-pN-IFo" customClass="StatsView" customModule="Diploma" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="80"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0A-4J-cMh" customClass="StatsView" customModule="Diploma" customModuleProvider="target">
+                                                <rect key="frame" x="88" y="0.0" width="78" height="80"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-0w-vSc" customClass="StatsView" customModule="Diploma" customModuleProvider="target">
+                                                <rect key="frame" x="176" y="0.0" width="78" height="80"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4eS-k1-9wK" secondAttribute="trailing" constant="20" id="1Yj-QL-UjR"/>
+                                    <constraint firstItem="aaq-wE-qFE" firstAttribute="leading" secondItem="Ncr-gm-VI1" secondAttribute="leading" constant="20" id="F9s-c3-hUc"/>
+                                    <constraint firstItem="aaq-wE-qFE" firstAttribute="top" secondItem="Ncr-gm-VI1" secondAttribute="top" constant="20" id="O85-GO-6gZ"/>
+                                    <constraint firstItem="4eS-k1-9wK" firstAttribute="leading" secondItem="aaq-wE-qFE" secondAttribute="trailing" constant="40" id="WO7-TV-uKL"/>
+                                    <constraint firstAttribute="height" constant="120" id="WSR-by-aIz"/>
+                                    <constraint firstItem="4eS-k1-9wK" firstAttribute="top" secondItem="Ncr-gm-VI1" secondAttribute="top" constant="20" id="dBO-WE-ryX"/>
+                                    <constraint firstAttribute="bottom" secondItem="aaq-wE-qFE" secondAttribute="bottom" constant="20" id="t6q-We-OfR"/>
+                                    <constraint firstAttribute="bottom" secondItem="4eS-k1-9wK" secondAttribute="bottom" constant="20" id="xVo-bk-PNe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ncr-gm-VI1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DZh-H0-hSb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ncr-gm-VI1" secondAttribute="trailing" id="MrQ-Kh-7Wz"/>
+                            <constraint firstItem="Ncr-gm-VI1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cqr-Lz-acZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="aaq-wE-qFE" id="bJK-92-hzT"/>
+                        <outlet property="statsStackView" destination="4eS-k1-9wK" id="bgS-sk-38F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

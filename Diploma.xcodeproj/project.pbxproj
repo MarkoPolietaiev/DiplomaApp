@@ -26,6 +26,9 @@
 		616FFAB626EF0EEF00C86A44 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAB526EF0EEF00C86A44 /* Notification.swift */; };
 		616FFABA26EF0F5700C86A44 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAB826EF0F5700C86A44 /* NotificationTableViewCell.swift */; };
 		616FFABB26EF0F5700C86A44 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616FFAB926EF0F5700C86A44 /* NotificationTableViewCell.xib */; };
+		616FFABE26F1DB3600C86A44 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFABD26F1DB3600C86A44 /* StatsView.swift */; };
+		616FFAC026F1DB4400C86A44 /* StatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616FFABF26F1DB4400C86A44 /* StatsView.xib */; };
+		616FFAC226F1DC5400C86A44 /* StatsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAC126F1DC5400C86A44 /* StatsItem.swift */; };
 		61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBD2688182D00B799C2 /* R.generated.swift */; };
 		61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBF2688198500B799C2 /* UIColor+Extension.swift */; };
 		61D24CC526882B6400B799C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D24CC726882B6400B799C2 /* Localizable.strings */; };
@@ -82,6 +85,9 @@
 		616FFAB526EF0EEF00C86A44 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		616FFAB826EF0F5700C86A44 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		616FFAB926EF0F5700C86A44 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		616FFABD26F1DB3600C86A44 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		616FFABF26F1DB4400C86A44 /* StatsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsView.xib; sourceTree = "<group>"; };
+		616FFAC126F1DC5400C86A44 /* StatsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItem.swift; sourceTree = "<group>"; };
 		61D24CBD2688182D00B799C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		61D24CBF2688198500B799C2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		61D24CC626882B6400B799C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -181,6 +187,15 @@
 				616FFAB926EF0F5700C86A44 /* NotificationTableViewCell.xib */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		616FFABC26F1DB1800C86A44 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				616FFABD26F1DB3600C86A44 /* StatsView.swift */,
+				616FFABF26F1DB4400C86A44 /* StatsView.xib */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		61D24CD026882BAD00B799C2 /* Locale */ = {
@@ -298,8 +313,8 @@
 			children = (
 				61DD219A265DE79C00149815 /* Auth.storyboard */,
 				61DD2186265DE71000149815 /* Main.storyboard */,
-				61DD218B265DE71700149815 /* LaunchScreen.storyboard */,
 				610AFE3D269A9E6B00F55A96 /* Profile.storyboard */,
+				61DD218B265DE71700149815 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -317,6 +332,7 @@
 		61DD2196265DE77C00149815 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				616FFABC26F1DB1800C86A44 /* Profile */,
 				616FFAB726EF0F3C00C86A44 /* Notifications */,
 				616FFAB026EEF04900C86A44 /* Search */,
 				616FFAA526E9CE5800C86A44 /* Feed */,
@@ -344,6 +360,7 @@
 				616FFAAA26E9D0C600C86A44 /* User.swift */,
 				616FFAAC26E9D1BB00C86A44 /* Skill.swift */,
 				616FFAB526EF0EEF00C86A44 /* Notification.swift */,
+				616FFAC126F1DC5400C86A44 /* StatsItem.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -451,6 +468,7 @@
 				61D24CCE26882B8000B799C2 /* pl.lproj in Resources */,
 				61DD219B265DE79C00149815 /* Auth.storyboard in Resources */,
 				61D24CEE268965C400B799C2 /* DescriptionView.xib in Resources */,
+				616FFAC026F1DB4400C86A44 /* StatsView.xib in Resources */,
 				616FFAB426EEF06200C86A44 /* SearchCollectionViewCell.xib in Resources */,
 				616FFABB26EF0F5700C86A44 /* NotificationTableViewCell.xib in Resources */,
 				61DD218D265DE71700149815 /* LaunchScreen.storyboard in Resources */,
@@ -555,6 +573,7 @@
 				61DA39D126881699006DDA44 /* SignInViewController.swift in Sources */,
 				610AFE4C269BCAB900F55A96 /* BaseButton.swift in Sources */,
 				61D24CEC2689657500B799C2 /* NSObject + Extension.swift in Sources */,
+				616FFAC226F1DC5400C86A44 /* StatsItem.swift in Sources */,
 				61DD2181265DE71000149815 /* AppDelegate.swift in Sources */,
 				61D24CDF26882C8500B799C2 /* UserData.swift in Sources */,
 				61DA39D3268816A5006DDA44 /* SignUpViewController.swift in Sources */,
@@ -566,6 +585,7 @@
 				610AFE4E269BCC0000F55A96 /* BaseTextField.swift in Sources */,
 				61D24CEA2689654700B799C2 /* UIView + Extensions.swift in Sources */,
 				61D24CE8268964F900B799C2 /* BaseView.swift in Sources */,
+				616FFABE26F1DB3600C86A44 /* StatsView.swift in Sources */,
 				610AFE42269A9EB600F55A96 /* ProfileViewController.swift in Sources */,
 				61DA39CD2688164C006DDA44 /* BaseViewController.swift in Sources */,
 				61D24CE6268964E000B799C2 /* DescriptionView.swift in Sources */,

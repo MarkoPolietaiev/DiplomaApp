@@ -54,9 +54,9 @@ extension FeedViewController: UITableViewDelegate {
 private extension FeedViewController {
     func populateData() {
         
-        let user1 = User(username: "some_user", image: R.image.user1()!)
-        let user2 = User(username: "dow_Jones", image: R.image.user2()!)
-        let user3 = User(username: "*John*Smith*", image: R.image.user3()!)
+        let user1 = User(username: "some_user", image: R.image.user1()!, stats: [])
+        let user2 = User(username: "dow_Jones", image: R.image.user2()!, stats: [])
+        let user3 = User(username: "*John*Smith*", image: R.image.user3()!, stats: [])
         
         let skill1 = Skill(title: "Skill 1", user: user1, image: R.image.skill1()!)
         let skill2 = Skill(title: "Skill 2", user: user1, image: R.image.skill2()!)
