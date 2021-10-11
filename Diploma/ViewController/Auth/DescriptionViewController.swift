@@ -29,23 +29,23 @@ class DescriptionViewController: BaseViewController {
     
     private func createSlides() -> [DescriptionView] {
         let slide1 = DescriptionView()
-        let item1 = DescriptionItem(title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", image: R.image.welcomeImage() ?? UIImage())
+        let item1 = DescriptionItem(title: R.string.localizable.slide1Text(), image: R.image.welcomeImage() ?? UIImage())
         slide1.setupWithItem(item1)
         
         let slide2 = DescriptionView()
-        let item2 = DescriptionItem(title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", image: R.image.welcomeImage() ?? UIImage())
+        let item2 = DescriptionItem(title: R.string.localizable.slide2Text(), image: R.image.welcomeImage() ?? UIImage())
         slide2.setupWithItem(item2)
         
         let slide3 = DescriptionView()
-        let item3 = DescriptionItem(title: "Lorem Ipsum is simply dummy text of the printing andard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", image: R.image.welcomeImage() ?? UIImage())
+        let item3 = DescriptionItem(title: R.string.localizable.slide3Text(), image: R.image.welcomeImage() ?? UIImage())
         slide3.setupWithItem(item3)
         
         let slide4 = DescriptionView()
-        let item4 = DescriptionItem(title: "e printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scra book.", image: R.image.welcomeImage() ?? UIImage())
+        let item4 = DescriptionItem(title: R.string.localizable.slide4Text(), image: R.image.welcomeImage() ?? UIImage())
         slide4.setupWithItem(item4)
         
         let slide5 = DescriptionView()
-        let item5 = DescriptionItem(title: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ", image: R.image.welcomeImage() ?? UIImage())
+        let item5 = DescriptionItem(title: R.string.localizable.slide5Text(), image: R.image.welcomeImage() ?? UIImage())
         slide5.setupWithItem(item5, isLast: true)
         slide5.action = {
             self.goToSignUp()

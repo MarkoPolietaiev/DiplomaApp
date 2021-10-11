@@ -6,26 +6,26 @@
   
 */
 // First View Controller
-"start" = "Start";
-"Welcome! We are happy to see you here";
+"start" = "Начать";
+"welcome" = "Приветствуем! Рады видеть вас здесь";
 
 // Description View Controller
-"slide1.text" = "";
-"slide2.text" = "";
-"slide3.text" = "";
-"slide4.text" = "";
-"slide5.text" = "";
-"lets.try" = "Lets Try!";
+"slide1.text" = "Сейчас мы постараемся детально описать наши цели и стремления. Как мы надеемся сделать вашу жизнь ярче, и что не менее важно, продуктивнее.";
+"slide2.text" = "В мире наших дней, со всеми вызовами и трудностями, мы часто сталкиваемся с необходимостью контролировать свою продуктивность самостоятельно. В конце концов, мало кому хочется стоять на месте. Но как сохранять вдохновение на мотивацию?";
+"slide3.text" = "Здесь в роль вступаем мы. С нашим сервисом вам будет куда легче поддерживать тонус продуктивности и отслеживать свои успехи на любом промежутке времени.";
+"slide4.text" = "Просто добавьте цель, которую хотите достичь, назначьте дедлайн, и поделитесь своими успехами с близкими! К тому же вы всегда можете поддержать и порадоваться успехам других людей в вашем окружении.";
+"slide5.text" = "Готовы окунуться в мир продуктивности?";
+"ready" = "Готов!";
 
 // Sign In View Controller
-"log.in" = "Log In";
-"no.account" = "I don't have an account";
-"username" = "Username";
-"password" = "Password";
+"log.in" = "Войти";
+"no.account" = "У меня нет аккаунта";
+"username" = "Имя пользователя";
+"password" = "Пароль";
 
 // Sign Up View Controller
-"have.account" = "I have an account";
+"have.account" = "У меня есть аккаунт";
 "email" = "Email";
-"confirm.email" = "Confirm email";
-"repeat.password" = "Repeat password";
-"create.account" = "Create Account";
+"confirm.email" = "Подтвердите email";
+"confirm.password" = "Подтвердите пароль";
+"create.account" = "Создать аккаунт";

@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         //self.window =  UIWindow(frame: UIScreen.main.bounds)
-
-        guard let rootVC = R.storyboard.auth.firstViewController() else {
+        
+       guard let rootVC = UserData.firstLaunch ? R.storyboard.auth.firstViewController() : R.storyboard.auth.signInViewController() else {
             print("ViewController not found")
             return
         }

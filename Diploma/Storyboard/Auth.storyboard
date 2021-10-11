@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7y-zO-b3C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7y-zO-b3C">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,6 +38,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="welcome"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="quZ-K3-HHQ">
                                 <rect key="frame" x="45" y="313" width="324" height="270"/>
@@ -54,6 +58,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="start"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="Uq3-u2-gyy" eventType="touchUpInside" id="eB1-qW-smx"/>
                                 </connections>
@@ -91,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="x3c-M6-Nt3">
-                                <rect key="frame" x="146" y="784" width="122" height="28"/>
+                                <rect key="frame" x="129.5" y="786" width="155.5" height="26"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-I1-0zd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
@@ -146,6 +153,9 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="username"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-eJ-sUd">
                                         <rect key="frame" x="30" y="85" width="284" height="45"/>
@@ -156,6 +166,9 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="password"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hX2-Wc-N3c" customClass="BaseButton" customModule="Diploma" customModuleProvider="target">
                                         <rect key="frame" x="30" y="195" width="284" height="50"/>
@@ -167,6 +180,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="log.in"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="logInButtonPressed:" destination="uag-ZP-3Cm" eventType="touchUpInside" id="sNH-cA-TdE"/>
                                         </connections>
@@ -180,6 +196,9 @@
                                         <state key="normal" title="I don't have an account">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="no.account"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="signUpButtonPressed:" destination="uag-ZP-3Cm" eventType="touchUpInside" id="0j2-Px-QHX"/>
                                         </connections>
@@ -254,6 +273,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="nickname"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="username"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-0m-Qha">
                                         <rect key="frame" x="30" y="135" width="284" height="45"/>
@@ -262,6 +284,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="confirm.email"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDy-yE-7LJ" customClass="BaseButton" customModule="Diploma" customModuleProvider="target">
                                         <rect key="frame" x="30" y="513" width="284" height="50"/>
@@ -273,6 +298,9 @@
                                         <state key="normal" title="Create Account">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="create.account"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="createAccountButtonPressed:" destination="C7e-CL-4sY" eventType="touchUpInside" id="w0r-bQ-MQh"/>
                                         </connections>
@@ -284,6 +312,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="password"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjN-4r-s1V">
                                         <rect key="frame" x="30" y="255" width="284" height="45"/>
@@ -292,6 +323,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="confirm.password"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-mE-cqF">
                                         <rect key="frame" x="30" y="75" width="284" height="45"/>
@@ -300,6 +334,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="email"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" name="buttonColor"/>
@@ -334,14 +371,15 @@
                                             <constraint firstAttribute="width" secondItem="coB-9T-bX4" secondAttribute="height" multiplier="1:1" id="YIV-B9-EKr"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBp-Pz-iWe">
-                                        <rect key="frame" x="40" y="0.0" width="344" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <color key="textColor" name="titleColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="575-rz-ghD">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
+                                        <rect key="frame" x="35" y="0.0" width="144" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="I have an account">
+                                            <color key="titleColor" name="titleColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="have.account"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="C7e-CL-4sY" eventType="touchUpInside" id="jL2-hF-kPV"/>
                                         </connections>
@@ -349,18 +387,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="dBp-Pz-iWe" firstAttribute="leading" secondItem="coB-9T-bX4" secondAttribute="trailing" constant="10" id="0uk-qd-gde"/>
-                                    <constraint firstAttribute="trailing" secondItem="575-rz-ghD" secondAttribute="trailing" id="4kx-GW-vE7"/>
                                     <constraint firstAttribute="bottom" secondItem="coB-9T-bX4" secondAttribute="bottom" id="6cy-wP-46I"/>
-                                    <constraint firstAttribute="trailing" secondItem="dBp-Pz-iWe" secondAttribute="trailing" id="CKp-x3-o1D"/>
                                     <constraint firstAttribute="bottom" secondItem="575-rz-ghD" secondAttribute="bottom" id="HEC-5q-XHQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="dBp-Pz-iWe" secondAttribute="bottom" id="J7L-pZ-ba8"/>
-                                    <constraint firstItem="575-rz-ghD" firstAttribute="leading" secondItem="XaC-ej-TCd" secondAttribute="leading" id="KPc-tl-rR2"/>
                                     <constraint firstAttribute="height" constant="30" id="Ppt-ps-K8K"/>
                                     <constraint firstItem="coB-9T-bX4" firstAttribute="top" secondItem="XaC-ej-TCd" secondAttribute="top" id="RE6-MP-CpS"/>
                                     <constraint firstItem="575-rz-ghD" firstAttribute="top" secondItem="XaC-ej-TCd" secondAttribute="top" id="RFd-r7-5ak"/>
                                     <constraint firstItem="coB-9T-bX4" firstAttribute="leading" secondItem="XaC-ej-TCd" secondAttribute="leading" id="SPK-cC-4gn"/>
-                                    <constraint firstItem="dBp-Pz-iWe" firstAttribute="top" secondItem="XaC-ej-TCd" secondAttribute="top" id="nUf-hx-hqV"/>
+                                    <constraint firstItem="575-rz-ghD" firstAttribute="leading" secondItem="coB-9T-bX4" secondAttribute="trailing" constant="5" id="h7Q-M2-MjL"/>
                                 </constraints>
                             </view>
                         </subviews>

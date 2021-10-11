@@ -33,6 +33,7 @@ class SignInViewController: BaseViewController {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
         sceneDelegate.window?.rootViewController = vc
+        UserData.firstLaunch = false
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {

@@ -33,9 +33,9 @@ private extension UserData {
 extension UserData {
     
     // First launch is true by default and changes to false whenever user creates and account or logs in so we do not need to show greetings vc.
-    static var firstLaunch: Bool? {
+    static var firstLaunch: Bool {
         get {
-            return self.get(.firstLaunch) as? Bool? ?? true
+            return self.get(.firstLaunch) as? Bool ?? true
         }
         set {
             self.set(newValue, key: .firstLaunch)

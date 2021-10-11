@@ -8,15 +8,15 @@
 
 // First View Controller
 "start" = "Start";
-"Welcome! We are happy to see you here";
+"welcome" = "Welcome! We are happy to see you here";
 
 // Description View Controller
-"slide1.text" = "";
-"slide2.text" = "";
-"slide3.text" = "";
-"slide4.text" = "";
-"slide5.text" = "";
-"lets.try" = "Lets Try!";
+"slide1.text" = "Now we will try to describe our goals and aspirations. How exactly we hope to make your life brighter, and what is not less important, more productive.";
+"slide2.text" = "In the world of our day, with all the challenges and difficulties, we are often faced with the need to control our productivity on our own. After all, few people want to stand still. But how do you keep the inspiration for motivation?";
+"slide3.text" = "This is where we come into play. With our service, it will be much easier for you to maintain a tone of productivity and track your progress at any period of time.";
+"slide4.text" = "Just add a goal you want to achieve, set a deadline, and share your successes with your loved ones! In addition, you can always support and rejoice in the success of other people in your environment.";
+"slide5.text" = "Are you ready to dive into the world of productivity?";
+"ready" = "Ready!";
 
 // Sign In View Controller
 "log.in" = "Log In";
@@ -28,6 +28,6 @@
 "have.account" = "I have an account";
 "email" = "Email";
 "confirm.email" = "Confirm email";
-"repeat.password" = "Repeat password";
+"confirm.password" = "Confirm password";
 "create.account" = "Create Account";
 

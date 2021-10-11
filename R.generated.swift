@@ -634,23 +634,7 @@ struct R: Rswift.Validatable {
   struct string {
     /// This `R.string.localizable` struct is generated, and contains static references to 17 localization keys.
     struct localizable {
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static let slide1Text = Rswift.StringResource(key: "slide1.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static let slide2Text = Rswift.StringResource(key: "slide2.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static let slide3Text = Rswift.StringResource(key: "slide3.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static let slide4Text = Rswift.StringResource(key: "slide4.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
-      /// en translation: 
+      /// en translation: Are you ready to dive into the world of productivity?
       ///
       /// Locales: en, pl, ru
       static let slide5Text = Rswift.StringResource(key: "slide5.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
@@ -658,6 +642,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, pl, ru
       static let confirmEmail = Rswift.StringResource(key: "confirm.email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      /// en translation: Confirm password
+      ///
+      /// Locales: en, ru
+      static let confirmPassword = Rswift.StringResource(key: "confirm.password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Create Account
       ///
       /// Locales: en, pl, ru
@@ -674,96 +662,48 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, pl, ru
       static let haveAccount = Rswift.StringResource(key: "have.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
-      /// en translation: Lets Try!
+      /// en translation: In the world of our day, with all the challenges and difficulties, we are often faced with the need to control our productivity on our own. After all, few people want to stand still. But how do you keep the inspiration for motivation?
       ///
       /// Locales: en, pl, ru
-      static let letsTry = Rswift.StringResource(key: "lets.try", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      static let slide2Text = Rswift.StringResource(key: "slide2.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      /// en translation: Just add a goal you want to achieve, set a deadline, and share your successes with your loved ones! In addition, you can always support and rejoice in the success of other people in your environment.
+      ///
+      /// Locales: en, pl, ru
+      static let slide4Text = Rswift.StringResource(key: "slide4.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
       /// en translation: Log In
       ///
       /// Locales: en, pl, ru
       static let logIn = Rswift.StringResource(key: "log.in", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      /// en translation: Now we will try to describe our goals and aspirations. How exactly we hope to make your life brighter, and what is not less important, more productive.
+      ///
+      /// Locales: en, pl, ru
+      static let slide1Text = Rswift.StringResource(key: "slide1.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
       /// en translation: Password
       ///
       /// Locales: en, pl, ru
       static let password = Rswift.StringResource(key: "password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
-      /// en translation: Repeat password
+      /// en translation: Ready!
       ///
       /// Locales: en, pl, ru
-      static let repeatPassword = Rswift.StringResource(key: "repeat.password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      static let ready = Rswift.StringResource(key: "ready", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
       /// en translation: Start
       ///
       /// Locales: en, pl, ru
       static let start = Rswift.StringResource(key: "start", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      /// en translation: This is where we come into play. With our service, it will be much easier for you to maintain a tone of productivity and track your progress at any period of time.
+      ///
+      /// Locales: en, pl, ru
+      static let slide3Text = Rswift.StringResource(key: "slide3.text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
       /// en translation: Username
       ///
       /// Locales: en, pl, ru
       static let username = Rswift.StringResource(key: "username", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
       /// en translation: Welcome! We are happy to see you here
       ///
-      /// Locales: en, pl, ru
-      static let welcomeWeAreHappyToSeeYouHere = Rswift.StringResource(key: "Welcome! We are happy to see you here", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pl", "ru"], comment: nil)
+      /// Locales: en, ru
+      static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
 
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static func slide1Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("slide1.text", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "slide1.text"
-        }
-
-        return NSLocalizedString("slide1.text", bundle: bundle, comment: "")
-      }
-
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static func slide2Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("slide2.text", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "slide2.text"
-        }
-
-        return NSLocalizedString("slide2.text", bundle: bundle, comment: "")
-      }
-
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static func slide3Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("slide3.text", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "slide3.text"
-        }
-
-        return NSLocalizedString("slide3.text", bundle: bundle, comment: "")
-      }
-
-      /// en translation: 
-      ///
-      /// Locales: en, pl, ru
-      static func slide4Text(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("slide4.text", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "slide4.text"
-        }
-
-        return NSLocalizedString("slide4.text", bundle: bundle, comment: "")
-      }
-
-      /// en translation: 
+      /// en translation: Are you ready to dive into the world of productivity?
       ///
       /// Locales: en, pl, ru
       static func slide5Text(preferredLanguages: [String]? = nil) -> String {
@@ -791,6 +731,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("confirm.email", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Confirm password
+      ///
+      /// Locales: en, ru
+      static func confirmPassword(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("confirm.password", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "confirm.password"
+        }
+
+        return NSLocalizedString("confirm.password", bundle: bundle, comment: "")
       }
 
       /// en translation: Create Account
@@ -853,19 +808,34 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("have.account", bundle: bundle, comment: "")
       }
 
-      /// en translation: Lets Try!
+      /// en translation: In the world of our day, with all the challenges and difficulties, we are often faced with the need to control our productivity on our own. After all, few people want to stand still. But how do you keep the inspiration for motivation?
       ///
       /// Locales: en, pl, ru
-      static func letsTry(preferredLanguages: [String]? = nil) -> String {
+      static func slide2Text(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("lets.try", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("slide2.text", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "lets.try"
+          return "slide2.text"
         }
 
-        return NSLocalizedString("lets.try", bundle: bundle, comment: "")
+        return NSLocalizedString("slide2.text", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Just add a goal you want to achieve, set a deadline, and share your successes with your loved ones! In addition, you can always support and rejoice in the success of other people in your environment.
+      ///
+      /// Locales: en, pl, ru
+      static func slide4Text(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("slide4.text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "slide4.text"
+        }
+
+        return NSLocalizedString("slide4.text", bundle: bundle, comment: "")
       }
 
       /// en translation: Log In
@@ -883,6 +853,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("log.in", bundle: bundle, comment: "")
       }
 
+      /// en translation: Now we will try to describe our goals and aspirations. How exactly we hope to make your life brighter, and what is not less important, more productive.
+      ///
+      /// Locales: en, pl, ru
+      static func slide1Text(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("slide1.text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "slide1.text"
+        }
+
+        return NSLocalizedString("slide1.text", bundle: bundle, comment: "")
+      }
+
       /// en translation: Password
       ///
       /// Locales: en, pl, ru
@@ -898,19 +883,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password", bundle: bundle, comment: "")
       }
 
-      /// en translation: Repeat password
+      /// en translation: Ready!
       ///
       /// Locales: en, pl, ru
-      static func repeatPassword(preferredLanguages: [String]? = nil) -> String {
+      static func ready(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("repeat.password", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("ready", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "repeat.password"
+          return "ready"
         }
 
-        return NSLocalizedString("repeat.password", bundle: bundle, comment: "")
+        return NSLocalizedString("ready", bundle: bundle, comment: "")
       }
 
       /// en translation: Start
@@ -926,6 +911,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("start", bundle: bundle, comment: "")
+      }
+
+      /// en translation: This is where we come into play. With our service, it will be much easier for you to maintain a tone of productivity and track your progress at any period of time.
+      ///
+      /// Locales: en, pl, ru
+      static func slide3Text(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("slide3.text", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "slide3.text"
+        }
+
+        return NSLocalizedString("slide3.text", bundle: bundle, comment: "")
       }
 
       /// en translation: Username
@@ -945,17 +945,17 @@ struct R: Rswift.Validatable {
 
       /// en translation: Welcome! We are happy to see you here
       ///
-      /// Locales: en, pl, ru
-      static func welcomeWeAreHappyToSeeYouHere(preferredLanguages: [String]? = nil) -> String {
+      /// Locales: en, ru
+      static func welcome(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Welcome! We are happy to see you here", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("welcome", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "Welcome! We are happy to see you here"
+          return "welcome"
         }
 
-        return NSLocalizedString("Welcome! We are happy to see you here", bundle: bundle, comment: "")
+        return NSLocalizedString("welcome", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
