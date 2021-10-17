@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pe8-D0-nZ9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pe8-D0-nZ9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -76,13 +77,105 @@
                     <view key="view" contentMode="scaleToFill" id="7oE-5K-iNV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="djD-It-4TO">
+                                <rect key="frame" x="129" y="816" width="156" height="26"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emG-xx-HK2" userLabel="Title View">
+                                <rect key="frame" x="0.0" y="54" width="414" height="130"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMu-75-4mu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post2" translatesAutoresizingMaskIntoConstraints="NO" id="wmd-k6-vw2" userLabel="User Image View">
+                                                <rect key="frame" x="10" y="5" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wmd-k6-vw2" secondAttribute="height" multiplier="1:1" id="zBz-e6-0w3"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaM-tf-zIR" userLabel="Username Label">
+                                                <rect key="frame" x="65" y="14.5" width="334" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3ov-5R-Kbd"/>
+                                            <constraint firstItem="ZaM-tf-zIR" firstAttribute="leading" secondItem="wmd-k6-vw2" secondAttribute="trailing" constant="15" id="CMQ-G5-tct"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZaM-tf-zIR" secondAttribute="trailing" constant="15" id="M7B-z9-gv5"/>
+                                            <constraint firstAttribute="bottom" secondItem="wmd-k6-vw2" secondAttribute="bottom" constant="5" id="bR3-Qe-uJa"/>
+                                            <constraint firstItem="wmd-k6-vw2" firstAttribute="leading" secondItem="iMu-75-4mu" secondAttribute="leading" constant="10" id="ddl-I1-8cC"/>
+                                            <constraint firstItem="wmd-k6-vw2" firstAttribute="top" secondItem="iMu-75-4mu" secondAttribute="top" constant="5" id="p2W-RM-Br5"/>
+                                            <constraint firstItem="ZaM-tf-zIR" firstAttribute="centerY" secondItem="iMu-75-4mu" secondAttribute="centerY" id="wzG-VO-tgt"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-t3-4uJ" userLabel="Skill Title Label">
+                                        <rect key="frame" x="10" y="55" width="394" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDD-Eh-aMM" userLabel="Post Title Label">
+                                        <rect key="frame" x="10" y="80.5" width="394" height="44.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vl3-t3-4uJ" firstAttribute="leading" secondItem="emG-xx-HK2" secondAttribute="leading" constant="10" id="0sg-AY-WDn"/>
+                                    <constraint firstAttribute="height" constant="130" id="1m5-et-pEY"/>
+                                    <constraint firstAttribute="trailing" secondItem="iMu-75-4mu" secondAttribute="trailing" id="25G-Bg-oJl"/>
+                                    <constraint firstItem="iMu-75-4mu" firstAttribute="top" secondItem="emG-xx-HK2" secondAttribute="top" id="3Oh-dW-xYm"/>
+                                    <constraint firstItem="vl3-t3-4uJ" firstAttribute="top" secondItem="iMu-75-4mu" secondAttribute="bottom" constant="5" id="9Gg-92-dB5"/>
+                                    <constraint firstAttribute="trailing" secondItem="vl3-t3-4uJ" secondAttribute="trailing" constant="10" id="T89-mg-CoI"/>
+                                    <constraint firstAttribute="trailing" secondItem="qDD-Eh-aMM" secondAttribute="trailing" constant="10" id="Tvl-d8-rM3"/>
+                                    <constraint firstItem="qDD-Eh-aMM" firstAttribute="leading" secondItem="emG-xx-HK2" secondAttribute="leading" constant="10" id="gVn-UE-vWe"/>
+                                    <constraint firstItem="iMu-75-4mu" firstAttribute="leading" secondItem="emG-xx-HK2" secondAttribute="leading" id="keQ-EP-Q2w"/>
+                                    <constraint firstItem="qDD-Eh-aMM" firstAttribute="top" secondItem="vl3-t3-4uJ" secondAttribute="bottom" constant="5" id="rOs-44-qHl"/>
+                                    <constraint firstAttribute="bottom" secondItem="qDD-Eh-aMM" secondAttribute="bottom" constant="5" id="t0V-sc-CnW"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3V-rU-ZJX">
+                                <rect key="frame" x="0.0" y="192" width="414" height="616"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-fu-eSD">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hHb-dD-puo"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="HzU-aB-TRA"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6VH-MP-zYd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6VH-MP-zYd" firstAttribute="bottom" secondItem="djD-It-4TO" secondAttribute="bottom" constant="20" id="2NB-s9-pBo"/>
+                            <constraint firstItem="6VH-MP-zYd" firstAttribute="trailing" secondItem="emG-xx-HK2" secondAttribute="trailing" id="QJs-rO-0FO"/>
+                            <constraint firstItem="emG-xx-HK2" firstAttribute="leading" secondItem="6VH-MP-zYd" secondAttribute="leading" id="SV4-Rg-O6R"/>
+                            <constraint firstItem="emG-xx-HK2" firstAttribute="top" secondItem="6VH-MP-zYd" secondAttribute="top" constant="10" id="SaF-63-hCZ"/>
+                            <constraint firstItem="djD-It-4TO" firstAttribute="centerX" secondItem="7oE-5K-iNV" secondAttribute="centerX" id="e22-6B-SMH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="djD-It-4TO" id="Cn8-jg-ADk"/>
+                        <outlet property="postTitleLabel" destination="qDD-Eh-aMM" id="hqU-Gh-KuT"/>
+                        <outlet property="scrollView" destination="U3V-rU-ZJX" id="B8Q-tR-7hV"/>
+                        <outlet property="skillTitleLabel" destination="vl3-t3-4uJ" id="T11-pt-hba"/>
+                        <outlet property="titleView" destination="emG-xx-HK2" id="AmY-AR-hbd"/>
+                        <outlet property="userImageView" destination="wmd-k6-vw2" id="qid-Tw-p8b"/>
+                        <outlet property="usernameLabel" destination="ZaM-tf-zIR" id="wn8-Xy-FpO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaa-bp-QcF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="-519"/>
+            <point key="canvasLocation" x="2082.608695652174" y="-519.64285714285711"/>
         </scene>
         <!--Actions View Controller-->
         <scene sceneID="d8h-4X-KtW">
@@ -151,7 +244,6 @@
         <!--Feed View Controller-->
         <scene sceneID="PdI-Uc-23c">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZoO-Mu-wS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="73g-Bn-uF6" customClass="FeedViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Onc-zK-9al">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -181,6 +273,7 @@
                         <outlet property="tableView" destination="dez-LB-Qxi" id="9R5-eg-7um"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZoO-Mu-wS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1151" y="-895"/>
         </scene>
@@ -245,6 +338,7 @@
         <image name="homeSelected" width="25" height="25"/>
         <image name="likes" width="25" height="25"/>
         <image name="likesSelected" width="25" height="25"/>
+        <image name="post2" width="512" height="799"/>
         <image name="profile" width="25" height="31"/>
         <image name="profileSelected" width="25" height="31"/>
         <image name="search" width="25" height="25"/>

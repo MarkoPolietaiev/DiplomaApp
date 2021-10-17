@@ -8,6 +8,8 @@
 import Foundation
 
 struct StatsItem {
+    
     var number: Int
     var title: String
+    
 }

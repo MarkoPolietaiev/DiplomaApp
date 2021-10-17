@@ -13,4 +13,5 @@ struct Post {
     var skill: Skill
     var title: String
     var image: UIImage
+    var steps: [Step]
 }

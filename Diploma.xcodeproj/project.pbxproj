@@ -29,6 +29,9 @@
 		616FFABE26F1DB3600C86A44 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFABD26F1DB3600C86A44 /* StatsView.swift */; };
 		616FFAC026F1DB4400C86A44 /* StatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616FFABF26F1DB4400C86A44 /* StatsView.xib */; };
 		616FFAC226F1DC5400C86A44 /* StatsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FFAC126F1DC5400C86A44 /* StatsItem.swift */; };
+		61AD68FE271BF9DB00FE4538 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD68FD271BF9DB00FE4538 /* StepView.swift */; };
+		61AD6900271BF9F800FE4538 /* StepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61AD68FF271BF9F800FE4538 /* StepView.xib */; };
+		61AD6902271BFEF800FE4538 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD6901271BFEF800FE4538 /* Step.swift */; };
 		61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBD2688182D00B799C2 /* R.generated.swift */; };
 		61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBF2688198500B799C2 /* UIColor+Extension.swift */; };
 		61D24CC526882B6400B799C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D24CC726882B6400B799C2 /* Localizable.strings */; };
@@ -88,6 +91,9 @@
 		616FFABD26F1DB3600C86A44 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		616FFABF26F1DB4400C86A44 /* StatsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsView.xib; sourceTree = "<group>"; };
 		616FFAC126F1DC5400C86A44 /* StatsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItem.swift; sourceTree = "<group>"; };
+		61AD68FD271BF9DB00FE4538 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		61AD68FF271BF9F800FE4538 /* StepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepView.xib; sourceTree = "<group>"; };
+		61AD6901271BFEF800FE4538 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		61D24CBD2688182D00B799C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		61D24CBF2688198500B799C2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		61D24CC626882B6400B799C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -196,6 +202,15 @@
 				616FFABF26F1DB4400C86A44 /* StatsView.xib */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		61AD68FC271BF9C600FE4538 /* Step */ = {
+			isa = PBXGroup;
+			children = (
+				61AD68FD271BF9DB00FE4538 /* StepView.swift */,
+				61AD68FF271BF9F800FE4538 /* StepView.xib */,
+			);
+			path = Step;
 			sourceTree = "<group>";
 		};
 		61D24CD026882BAD00B799C2 /* Locale */ = {
@@ -332,6 +347,7 @@
 		61DD2196265DE77C00149815 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				61AD68FC271BF9C600FE4538 /* Step */,
 				616FFABC26F1DB1800C86A44 /* Profile */,
 				616FFAB726EF0F3C00C86A44 /* Notifications */,
 				616FFAB026EEF04900C86A44 /* Search */,
@@ -361,6 +377,7 @@
 				616FFAAC26E9D1BB00C86A44 /* Skill.swift */,
 				616FFAB526EF0EEF00C86A44 /* Notification.swift */,
 				616FFAC126F1DC5400C86A44 /* StatsItem.swift */,
+				61AD6901271BFEF800FE4538 /* Step.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -472,6 +489,7 @@
 				616FFAB426EEF06200C86A44 /* SearchCollectionViewCell.xib in Resources */,
 				616FFABB26EF0F5700C86A44 /* NotificationTableViewCell.xib in Resources */,
 				61DD218D265DE71700149815 /* LaunchScreen.storyboard in Resources */,
+				61AD6900271BF9F800FE4538 /* StepView.xib in Resources */,
 				61DD218A265DE71700149815 /* Assets.xcassets in Resources */,
 				616FFAA926E9CE6D00C86A44 /* FeedTableViewCell.xib in Resources */,
 				61D24CCD26882B8000B799C2 /* ru.lproj in Resources */,
@@ -548,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AD6902271BFEF800FE4538 /* Step.swift in Sources */,
 				616FFAAF26EC788900C86A44 /* PostViewController.swift in Sources */,
 				616FFAB326EEF06200C86A44 /* SearchCollectionViewCell.swift in Sources */,
 				61D24CF02689669000B799C2 /* DescriptionItem.swift in Sources */,
@@ -574,6 +593,7 @@
 				610AFE4C269BCAB900F55A96 /* BaseButton.swift in Sources */,
 				61D24CEC2689657500B799C2 /* NSObject + Extension.swift in Sources */,
 				616FFAC226F1DC5400C86A44 /* StatsItem.swift in Sources */,
+				61AD68FE271BF9DB00FE4538 /* StepView.swift in Sources */,
 				61DD2181265DE71000149815 /* AppDelegate.swift in Sources */,
 				61D24CDF26882C8500B799C2 /* UserData.swift in Sources */,
 				61DA39D3268816A5006DDA44 /* SignUpViewController.swift in Sources */,

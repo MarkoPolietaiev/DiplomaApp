@@ -542,7 +542,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `DescriptionView`.
     static let descriptionView = _R.nib._DescriptionView()
@@ -554,6 +554,8 @@ struct R: Rswift.Validatable {
     static let searchCollectionViewCell = _R.nib._SearchCollectionViewCell()
     /// Nib `StatsView`.
     static let statsView = _R.nib._StatsView()
+    /// Nib `StepView`.
+    static let stepView = _R.nib._StepView()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "DescriptionView", in: bundle)`
@@ -595,6 +597,14 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "StepView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.stepView) instead")
+    static func stepView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.stepView)
+    }
+    #endif
+
     static func descriptionView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.descriptionView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -613,6 +623,10 @@ struct R: Rswift.Validatable {
 
     static func statsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.statsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func stepView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.stepView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     fileprivate init() {}
@@ -1066,6 +1080,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _StepView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "StepView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
     fileprivate init() {}
   }
   #endif
@@ -1188,6 +1213,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "homeSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homeSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "likes", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likes' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "likesSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likesSelected' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "post2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'post2' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in storyboard 'Main', but couldn't be loaded.") }
