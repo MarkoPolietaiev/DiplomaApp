@@ -15,6 +15,7 @@ class FeedViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Feed"
         self.setupDataSource()
     }
     

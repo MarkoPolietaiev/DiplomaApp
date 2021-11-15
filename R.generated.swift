@@ -1220,6 +1220,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "searchSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'searchSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "titleColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'titleColor' is used in storyboard 'Main', but couldn't be loaded.") }
         }
         if _R.storyboard.main().actionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'actionsViewController' could not be loaded from storyboard 'Main' as 'ActionsViewController'.") }
         if _R.storyboard.main().feedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'feedViewController' could not be loaded from storyboard 'Main' as 'FeedViewController'.") }
