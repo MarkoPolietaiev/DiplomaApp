@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pe8-D0-nZ9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pe8-D0-nZ9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -78,9 +78,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="djD-It-4TO">
-                                <rect key="frame" x="129" y="816" width="156" height="26"/>
-                            </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emG-xx-HK2" userLabel="Title View">
                                 <rect key="frame" x="0.0" y="54" width="414" height="130"/>
                                 <subviews>
@@ -143,7 +140,7 @@
                                 <rect key="frame" x="0.0" y="192" width="414" height="616"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-fu-eSD">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-fu-eSD" customClass="StepView" customModule="Diploma" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,12 +148,18 @@
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="hHb-dD-puo"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="HzU-aB-TRA"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oNy-zD-A4c" id="61t-ei-qUR"/>
+                                </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="djD-It-4TO">
+                                <rect key="frame" x="129" y="826" width="156" height="26"/>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6VH-MP-zYd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6VH-MP-zYd" firstAttribute="bottom" secondItem="djD-It-4TO" secondAttribute="bottom" constant="20" id="2NB-s9-pBo"/>
+                            <constraint firstItem="6VH-MP-zYd" firstAttribute="bottom" secondItem="djD-It-4TO" secondAttribute="bottom" constant="10" id="2NB-s9-pBo"/>
                             <constraint firstItem="6VH-MP-zYd" firstAttribute="trailing" secondItem="emG-xx-HK2" secondAttribute="trailing" id="QJs-rO-0FO"/>
                             <constraint firstItem="emG-xx-HK2" firstAttribute="leading" secondItem="6VH-MP-zYd" secondAttribute="leading" id="SV4-Rg-O6R"/>
                             <constraint firstItem="emG-xx-HK2" firstAttribute="top" secondItem="6VH-MP-zYd" secondAttribute="top" constant="10" id="SaF-63-hCZ"/>

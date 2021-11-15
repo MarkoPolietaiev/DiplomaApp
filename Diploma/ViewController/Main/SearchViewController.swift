@@ -82,25 +82,27 @@ private extension SearchViewController {
         let skill7 = Skill(title: "Skill 7", user: user3, image: R.image.skill7()!)
         let skill8 = Skill(title: "Skill 8", user: user3, image: R.image.skill8()!)
         
-       
+        let step1 = Step(title: "Step 1", description: "Description for step 1", images: [R.image.post1()!])
+        let step2 = Step(title: "Step 2", description: "Description for step 2", images: [R.image.post2()!])
+        let step3 = Step(title: "Step 3", description: "Description for step 3", images: [R.image.post3()!])
         
-        let post1 = Post(skill: skill1, title: "How I learn something at home, bla bla bla...", image: R.image.post1()!)
-        let post2 = Post(skill: skill2, title: "How I learn something at home, bla bla bla...", image: R.image.post2()!)
-        let post3 = Post(skill: skill1, title: "Post 3", image: R.image.post3()!)
-        let post4 = Post(skill: skill2, title: "Post 4", image: R.image.post4()!)
-        let post5 = Post(skill: skill1, title: "Post 5", image: R.image.post5()!)
+        let post1 = Post(skill: skill1, title: "How I learn something at home, bla bla bla...", image: R.image.post1()!, steps: [step1, step2, step3])
+        let post2 = Post(skill: skill2, title: "How I learn something at home, bla bla bla...", image: R.image.post2()!, steps: [step1, step2, step3])
+        let post3 = Post(skill: skill1, title: "Post 3", image: R.image.post3()!, steps: [step1, step2, step3])
+        let post4 = Post(skill: skill2, title: "Post 4", image: R.image.post4()!, steps: [step1, step2, step3])
+        let post5 = Post(skill: skill1, title: "Post 5", image: R.image.post5()!, steps: [step1, step2, step3])
         
-        let post6 = Post(skill: skill3, title: "How I learn something at home, bla bla bla...", image: R.image.post6()!)
-        let post7 = Post(skill: skill4, title: "Post 7", image: R.image.post1()!)
-        let post8 = Post(skill: skill5, title: "Post 8", image: R.image.post2()!)
-        let post9 = Post(skill: skill4, title: "How I learn something at home, bla bla bla...", image: R.image.post3()!)
-        let post10 = Post(skill: skill3, title: "Post 10", image: R.image.post4()!)
+        let post6 = Post(skill: skill3, title: "How I learn something at home, bla bla bla...", image: R.image.post6()!, steps: [step1, step2, step3])
+        let post7 = Post(skill: skill4, title: "Post 7", image: R.image.post1()!, steps: [step1, step2, step3])
+        let post8 = Post(skill: skill5, title: "Post 8", image: R.image.post2()!, steps: [step1, step2, step3])
+        let post9 = Post(skill: skill4, title: "How I learn something at home, bla bla bla...", image: R.image.post3()!, steps: [step1, step2, step3])
+        let post10 = Post(skill: skill3, title: "Post 10", image: R.image.post4()!, steps: [step1, step2, step3])
         
-        let post11 = Post(skill: skill6, title: "How I learn something at home, bla bla bla...", image: R.image.post5()!)
-        let post12 = Post(skill: skill6, title: "How I learn something at home, bla bla bla...", image: R.image.post6()!)
-        let post13 = Post(skill: skill7, title: "Post 13", image: R.image.post1()!)
-        let post14 = Post(skill: skill8, title: "Post 14", image: R.image.post2()!)
-        let post15 = Post(skill: skill8, title: "Post 15", image: R.image.post3()!)
+        let post11 = Post(skill: skill6, title: "How I learn something at home, bla bla bla...", image: R.image.post5()!, steps: [step1, step2, step3])
+        let post12 = Post(skill: skill6, title: "How I learn something at home, bla bla bla...", image: R.image.post6()!, steps: [step1, step2, step3])
+        let post13 = Post(skill: skill7, title: "Post 13", image: R.image.post1()!, steps: [step1, step2, step3])
+        let post14 = Post(skill: skill8, title: "Post 14", image: R.image.post2()!, steps: [step1, step2, step3])
+        let post15 = Post(skill: skill8, title: "Post 15", image: R.image.post3()!, steps: [step1, step2, step3])
         
         
         self.posts.append(contentsOf: [post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11,post12,post13,post14,post15])
