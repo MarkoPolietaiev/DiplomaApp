@@ -9,6 +9,8 @@ import UIKit
 import ChameleonFramework
 
 class BaseViewController: UIViewController {
+    
+    let authManager = AuthManager.shared()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,12 @@ class BaseViewController: UIViewController {
             postViewController.post = post
             self.navigationController?.pushViewController(postViewController, animated: true)
         }
+    }
+    
+    func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 
 }

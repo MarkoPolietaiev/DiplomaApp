@@ -27,13 +27,30 @@ class SignInViewController: BaseViewController {
         self.logInButton.layer.cornerRadius = self.logInButton.frame.height/2
         self.containerView.layer.cornerRadius = 15
     }
-
-    @IBAction func logInButtonPressed(_ sender: Any) {
-        // if log in successfully
+    
+    private func pushToMainVc() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
         sceneDelegate.window?.rootViewController = vc
         UserData.firstLaunch = false
+    }
+
+    @IBAction func logInButtonPressed(_ sender: Any) {
+        guard let email = usernameTextField.text,
+              !email.isEmpty,
+              let password = passwordTextField.text,
+              !password.isEmpty
+        else {
+            self.showErrorAlert(message: "Input error. Email and password should not be empty.")
+            return
+        }
+        self.authManager.signIn(email: email, password: password) { error in
+            if let error = error {
+                self.showErrorAlert(message: error.localizedDescription)
+            } else {
+                self.pushToMainVc()
+            }
+        }
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {

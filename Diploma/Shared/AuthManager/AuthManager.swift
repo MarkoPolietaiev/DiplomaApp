@@ -14,15 +14,24 @@ class AuthManager {
     private let decoder = JSONDecoder()
     
     enum Endpoint: String {
-        case register = "api/user/create/"
+        case signUp = "api/user/create/"
         case signIn = "api/user/token/"
+    }
+    
+    private static let sharedInstance: AuthManager = {
+        let instanse = AuthManager()
+        return instanse
+    }()
+    
+    static func shared() -> AuthManager {
+        return sharedInstance
     }
 }
 
 // MARK: Public functions
 extension AuthManager {
-    func register(email: String, password: String, name: String, completion: @escaping ((RegisterResponseModel?, Error?) -> Void)) {
-        guard let url = URL(string: baseUrl + Endpoint.register.rawValue) else {return}
+    func signUp(email: String, password: String, name: String, completion: @escaping ((RegisterResponseModel?, Error?) -> Void)) {
+        guard let url = URL(string: baseUrl + Endpoint.signUp.rawValue) else {return}
         let requestModel = RegisterRequestModel(email: email, password: password, name: name)
         let session = URLSession.shared
         //now create the Request object using the url object
@@ -57,7 +66,7 @@ extension AuthManager {
         task.resume()
     }
     
-    func signIn(email: String, password: String, completion: @escaping ((SignInResponseModel?, Error?) -> Void)) {
+    func signIn(email: String, password: String, completion: @escaping ((Error?) -> Void)) {
         guard let url = URL(string: baseUrl + Endpoint.signIn.rawValue) else {return}
         let requestModel = SignInRequestModel(email: email, password: password)
         let session = URLSession.shared
@@ -67,7 +76,7 @@ extension AuthManager {
         do {
             request.httpBody = try encoder.encode(requestModel)
         } catch let error {
-            completion(nil, error)
+            completion(error)
         }
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -75,19 +84,20 @@ extension AuthManager {
         //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             guard error == nil else {
-                completion(nil, error)
+                completion(error)
                 return
             }
             guard let data = data else {
-                completion(nil, NSError(domain: "dataNilError", code: -100001, userInfo: nil))
+                completion(NSError(domain: "dataNilError", code: -100001, userInfo: nil))
                 return
             }
             do {
                 //create json object from data
                 let json = try self.decoder.decode(SignInResponseModel.self, from: data)
-                completion(json, nil)
+                UserData.authToken = json.token
+                completion(nil)
             } catch let error {
-                completion(nil, error)
+                completion(error)
             }
         })
         task.resume()

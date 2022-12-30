@@ -11,13 +11,17 @@ class SignUpViewController: BaseViewController {
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var containerView: UIView!
-    
     @IBOutlet weak var createAccountButton: BaseButton!
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var confirmEmailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
-        // Do any additional setup after loading the view.
     }
     
     private func setupView() {
@@ -26,16 +30,54 @@ class SignUpViewController: BaseViewController {
         self.containerView.layer.cornerRadius = 15
     }
     
+    private func pushToMainVc() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
+        sceneDelegate.window?.rootViewController = vc
+        UserData.firstLaunch = false
+    }
 
     @IBAction func backButtonPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
-        //if registration successfull
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
-        sceneDelegate.window?.rootViewController = vc
-        UserData.firstLaunch = false
+        guard let username = usernameTextField.text,
+              !username.isEmpty,
+              let password = passwordTextField.text,
+              !password.isEmpty,
+              let email = emailTextField.text,
+              !email.isEmpty,
+              let confirmEmail = confirmEmailTextField.text,
+              !confirmEmail.isEmpty,
+              let repeatPassword = repeatPasswordTextField.text,
+              !repeatPassword.isEmpty
+        else {
+            self.showErrorAlert(message: "Input error. All fields should not be empty.")
+            return
+        }
+        guard password == repeatPassword else {
+            self.showErrorAlert(message: "Input error. Passwords do not match.")
+            return
+        }
+        guard email == confirmEmail else {
+            self.showErrorAlert(message: "Input error. Emails do not match.")
+            return
+        }
+        // create an account
+        self.authManager.signUp(email: email, password: password, name: username) { response, error in
+            if let error = error {
+                self.showErrorAlert(message: error.localizedDescription)
+            } else if response != nil {
+                // sign in with the new account
+                self.authManager.signIn(email: email, password: password) { error in
+                    if let error = error {
+                        self.showErrorAlert(message: error.localizedDescription)
+                    } else {
+                        self.pushToMainVc()
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7y-zO-b3C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7y-zO-b3C">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="x3c-M6-Nt3">
-                                <rect key="frame" x="129.5" y="786" width="155.5" height="26"/>
+                                <rect key="frame" x="149.5" y="786" width="115.5" height="26"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-I1-0zd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
@@ -414,8 +414,13 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="575-rz-ghD" id="flu-nI-0KA"/>
+                        <outlet property="confirmEmailTextField" destination="pVa-0m-Qha" id="KhQ-Ao-1bF"/>
                         <outlet property="containerView" destination="0io-B7-Wyh" id="wzy-R2-Sit"/>
                         <outlet property="createAccountButton" destination="vDy-yE-7LJ" id="oxY-cc-x6o"/>
+                        <outlet property="emailTextField" destination="sxz-mE-cqF" id="Iq9-7h-OnB"/>
+                        <outlet property="passwordTextField" destination="jbT-Zz-nMs" id="WGR-U2-Ev6"/>
+                        <outlet property="repeatPasswordTextField" destination="zjN-4r-s1V" id="qij-Yv-xbx"/>
+                        <outlet property="usernameTextField" destination="6UB-4k-c7p" id="6vj-Ua-JbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mq-el-M8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
