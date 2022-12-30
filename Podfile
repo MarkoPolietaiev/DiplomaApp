@@ -6,9 +6,9 @@ target 'Diploma' do
   use_frameworks!
   
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/luckychris/Chameleon.git'
-  pod 'Alamofire', '~> 5.2'
   pod 'R.swift'
   pod 'SquareFlowLayout'
+  pod 'SDWebImage'
   
   # Pods for Diploma
 

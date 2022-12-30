@@ -23,6 +23,11 @@ class PostViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let post = post else {
+            return
+        }
+        self.postTitleLabel.text = post.title
+        self.skillTitleLabel.text = post.skill.title
         self.setupPageControl()
     }
     

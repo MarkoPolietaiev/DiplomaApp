@@ -1,24 +1,26 @@
 PODS:
-  - Alamofire (5.4.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - SquareFlowLayout (0.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
   - ChameleonFramework/Swift (from `https://github.com/luckychris/Chameleon.git`)
   - R.swift
+  - SDWebImage
   - SquareFlowLayout
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - R.swift
     - R.swift.Library
+    - SDWebImage
     - SquareFlowLayout
 
 EXTERNAL SOURCES:
@@ -31,12 +33,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/luckychris/Chameleon.git
 
 SPEC CHECKSUMS:
-  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SquareFlowLayout: cde3486d3086fb7f95b303d9b90bb86aa9dd98b5
 
-PODFILE CHECKSUM: 521c70cdf86959a829bb6cab3b958688dcc0bb37
+PODFILE CHECKSUM: b69b22116744a444d7185a055e7de04ca3acd08f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

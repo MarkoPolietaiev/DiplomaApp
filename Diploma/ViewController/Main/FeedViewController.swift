@@ -70,9 +70,9 @@ private extension FeedViewController {
         let skill7 = Skill(title: "Skill 7", user: user3, image: R.image.skill7()!)
         let skill8 = Skill(title: "Skill 8", user: user3, image: R.image.skill8()!)
         
-        let step1 = Step(title: "Step 1", description: "Description for step 1", images: [R.image.post1()!])
-        let step2 = Step(title: "Step 2", description: "Description for step 2", images: [R.image.post2()!])
-        let step3 = Step(title: "Step 3", description: "Description for step 3", images: [R.image.post3()!])
+        let step1 = Step(title: "Step 1", description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versio from the 1914 translation by H. Rackham.", images: [R.image.post1()!, R.image.skill6()!, R.image.post5()!])
+        let step2 = Step(title: "Step 2", description: "Description for step 2", images: [R.image.post2()!, R.image.skill6()!, R.image.post5()!])
+        let step3 = Step(title: "Step 3", description: "Description for step 3", images: [R.image.post3()!, R.image.skill6()!, R.image.post5()!])
         
         let post1 = Post(skill: skill1, title: "Post 1", image: R.image.post1()!, steps: [step1, step2, step3])
         let post2 = Post(skill: skill2, title: "Post 2", image: R.image.post2()!, steps: [step1, step2, step3])
