@@ -11,6 +11,9 @@ import ChameleonFramework
 class BaseViewController: UIViewController {
     
     let authManager = AuthManager.shared()
+    let networkManager = NetworkManager.shared()
+    
+    var activityIndicator: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +63,23 @@ class BaseViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         DispatchQueue.main.async {
             self.present(alert, animated: true)
+        }
+    }
+    
+    func showActivityIndicator() {
+        if self.activityIndicator == nil {
+            self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.midX-20, y: self.view.frame.midY-20, width: 40, height: 40))
+            if let activityIndicator = self.activityIndicator {
+                self.view.addSubview(activityIndicator)
+                self.activityIndicator?.startAnimating()
+            }
+        }
+    }
+    
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator?.removeFromSuperview()
+            self.activityIndicator = nil
         }
     }
 }

@@ -10,13 +10,14 @@ import Foundation
 class AuthManager {
     
     private let baseUrl: String = "http://ec2-13-56-254-152.us-west-1.compute.amazonaws.com/"
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
     
     enum Endpoint: String {
         case signUp = "api/user/create/"
         case signIn = "api/user/token/"
     }
+    
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
     
     private static let sharedInstance: AuthManager = {
         let instanse = AuthManager()

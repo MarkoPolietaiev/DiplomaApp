@@ -89,12 +89,14 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `Auth`.
     static let auth = _R.storyboard.auth()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Main2`.
+    static let main2 = _R.storyboard.main2()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
     /// Storyboard `Profile`.
@@ -118,6 +120,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Main2", bundle: ...)`
+    static func main2(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.main2)
     }
     #endif
 
@@ -1108,6 +1117,9 @@ struct _R: Rswift.Validatable {
       try main.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try main2.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try profile.validate()
       #endif
     }
@@ -1177,14 +1189,13 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct main2: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = TabBarViewController
 
       let actionsViewController = StoryboardViewControllerResource<ActionsViewController>(identifier: "ActionsViewController")
       let bundle = R.hostingBundle
       let feedViewController = StoryboardViewControllerResource<FeedViewController>(identifier: "FeedViewController")
-      let name = "Main"
-      let postViewController = StoryboardViewControllerResource<PostViewController>(identifier: "PostViewController")
+      let name = "Main2"
       let searchViewController = StoryboardViewControllerResource<SearchViewController>(identifier: "SearchViewController")
       let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
 
@@ -1196,10 +1207,6 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: feedViewController)
       }
 
-      func postViewController(_: Void = ()) -> PostViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postViewController)
-      }
-
       func searchViewController(_: Void = ()) -> SearchViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: searchViewController)
       }
@@ -1209,24 +1216,51 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "home", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'home' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "homeSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homeSelected' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "likes", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likes' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "likesSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likesSelected' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "home", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'home' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "homeSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homeSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "likes", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likes' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "likesSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likesSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "searchSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'searchSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main2', but couldn't be loaded.") }
+        }
+        if _R.storyboard.main2().actionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'actionsViewController' could not be loaded from storyboard 'Main2' as 'ActionsViewController'.") }
+        if _R.storyboard.main2().feedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'feedViewController' could not be loaded from storyboard 'Main2' as 'FeedViewController'.") }
+        if _R.storyboard.main2().searchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchViewController' could not be loaded from storyboard 'Main2' as 'SearchViewController'.") }
+        if _R.storyboard.main2().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main2' as 'TabBarViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let mainViewController = StoryboardViewControllerResource<MainViewController>(identifier: "MainViewController")
+      let name = "Main"
+      let postViewController = StoryboardViewControllerResource<PostViewController>(identifier: "PostViewController")
+
+      func mainViewController(_: Void = ()) -> MainViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mainViewController)
+      }
+
+      func postViewController(_: Void = ()) -> PostViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postViewController)
+      }
+
+      static func validate() throws {
         if UIKit.UIImage(named: "post2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'post2' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "searchSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'searchSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "titleColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'titleColor' is used in storyboard 'Main', but couldn't be loaded.") }
         }
-        if _R.storyboard.main().actionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'actionsViewController' could not be loaded from storyboard 'Main' as 'ActionsViewController'.") }
-        if _R.storyboard.main().feedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'feedViewController' could not be loaded from storyboard 'Main' as 'FeedViewController'.") }
+        if _R.storyboard.main().mainViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainViewController' could not be loaded from storyboard 'Main' as 'MainViewController'.") }
         if _R.storyboard.main().postViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postViewController' could not be loaded from storyboard 'Main' as 'PostViewController'.") }
-        if _R.storyboard.main().searchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchViewController' could not be loaded from storyboard 'Main' as 'SearchViewController'.") }
-        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'TabBarViewController'.") }
       }
 
       fileprivate init() {}
@@ -1235,19 +1269,27 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct profile: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ProfileViewController
+      typealias InitialController = Profile2ViewController
 
       let bundle = R.hostingBundle
       let name = "Profile"
+      let profile2ViewController = StoryboardViewControllerResource<Profile2ViewController>(identifier: "Profile2ViewController")
       let profileViewController = StoryboardViewControllerResource<ProfileViewController>(identifier: "ProfileViewController")
+
+      func profile2ViewController(_: Void = ()) -> Profile2ViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: profile2ViewController)
+      }
 
       func profileViewController(_: Void = ()) -> ProfileViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: profileViewController)
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Profile', but couldn't be loaded.") }
         }
+        if _R.storyboard.profile().profile2ViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profile2ViewController' could not be loaded from storyboard 'Profile' as 'Profile2ViewController'.") }
         if _R.storyboard.profile().profileViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileViewController' could not be loaded from storyboard 'Profile' as 'ProfileViewController'.") }
       }
 

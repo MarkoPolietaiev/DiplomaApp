@@ -7,11 +7,17 @@
 
 import Foundation
 
+struct UserProfile: Codable {
+    var name: String
+    var email: String
+}
+
 class UserData {
     
     enum DefaultsKeys: String {
         case firstLaunch
         case authToken
+        case userProfile
     }
     
     private static let defaults = UserDefaults.standard
@@ -48,6 +54,20 @@ extension UserData {
         }
         set {
             self.set(newValue, key: .authToken)
+        }
+    }
+    
+    static var userProfile: UserProfile? {
+        get {
+            if let data = self.get(.userProfile) as? Data, let profile = try? JSONDecoder().decode(UserProfile.self, from: data) {
+                return profile
+            }
+            return nil
+        }
+        set {
+            if let encoded = try? JSONEncoder().encode(newValue) {
+                self.set(encoded, key: .userProfile)
+            }
         }
     }
 }

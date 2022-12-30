@@ -29,10 +29,11 @@ class SignInViewController: BaseViewController {
     }
     
     private func pushToMainVc() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
         DispatchQueue.main.async {
-            sceneDelegate.window?.rootViewController = vc
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.mainViewController() else {return}
+            let navVc = UINavigationController(rootViewController: vc)
+            sceneDelegate.window?.rootViewController = navVc
             UserData.firstLaunch = false
         }
     }
@@ -46,7 +47,9 @@ class SignInViewController: BaseViewController {
             self.showErrorAlert(message: "Input error. Email and password should not be empty.")
             return
         }
+        self.showActivityIndicator()
         self.authManager.signIn(email: email, password: password) { error in
+            self.hideActivityIndicator()
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
             } else {

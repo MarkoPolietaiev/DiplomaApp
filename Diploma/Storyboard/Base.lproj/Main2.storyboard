@@ -70,116 +70,6 @@
             </objects>
             <point key="canvasLocation" x="1151" y="-226"/>
         </scene>
-        <!--Post View Controller-->
-        <scene sceneID="Bla-S3-IoQ">
-            <objects>
-                <viewController storyboardIdentifier="PostViewController" id="oNy-zD-A4c" customClass="PostViewController" customModule="Diploma" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7oE-5K-iNV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emG-xx-HK2" userLabel="Title View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="115"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMu-75-4mu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post2" translatesAutoresizingMaskIntoConstraints="NO" id="wmd-k6-vw2" userLabel="User Image View">
-                                                <rect key="frame" x="10" y="5" width="35" height="35"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="wmd-k6-vw2" secondAttribute="height" multiplier="1:1" id="zBz-e6-0w3"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaM-tf-zIR" userLabel="Username Label">
-                                                <rect key="frame" x="60" y="12" width="339" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="3ov-5R-Kbd"/>
-                                            <constraint firstItem="ZaM-tf-zIR" firstAttribute="leading" secondItem="wmd-k6-vw2" secondAttribute="trailing" constant="15" id="CMQ-G5-tct"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZaM-tf-zIR" secondAttribute="trailing" constant="15" id="M7B-z9-gv5"/>
-                                            <constraint firstAttribute="bottom" secondItem="wmd-k6-vw2" secondAttribute="bottom" constant="5" id="bR3-Qe-uJa"/>
-                                            <constraint firstItem="wmd-k6-vw2" firstAttribute="leading" secondItem="iMu-75-4mu" secondAttribute="leading" constant="10" id="ddl-I1-8cC"/>
-                                            <constraint firstItem="wmd-k6-vw2" firstAttribute="top" secondItem="iMu-75-4mu" secondAttribute="top" constant="5" id="p2W-RM-Br5"/>
-                                            <constraint firstItem="ZaM-tf-zIR" firstAttribute="centerY" secondItem="iMu-75-4mu" secondAttribute="centerY" id="wzG-VO-tgt"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-t3-4uJ" userLabel="Skill Title Label">
-                                        <rect key="frame" x="10" y="45" width="394" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="titleColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDD-Eh-aMM" userLabel="Post Title Label">
-                                        <rect key="frame" x="10" y="70.5" width="394" height="44.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" name="titleColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="vl3-t3-4uJ" firstAttribute="leading" secondItem="emG-xx-HK2" secondAttribute="leading" constant="10" id="0sg-AY-WDn"/>
-                                    <constraint firstAttribute="height" constant="115" id="1m5-et-pEY"/>
-                                    <constraint firstAttribute="trailing" secondItem="iMu-75-4mu" secondAttribute="trailing" id="25G-Bg-oJl"/>
-                                    <constraint firstItem="iMu-75-4mu" firstAttribute="top" secondItem="emG-xx-HK2" secondAttribute="top" id="3Oh-dW-xYm"/>
-                                    <constraint firstItem="vl3-t3-4uJ" firstAttribute="top" secondItem="iMu-75-4mu" secondAttribute="bottom" id="9Gg-92-dB5"/>
-                                    <constraint firstAttribute="trailing" secondItem="vl3-t3-4uJ" secondAttribute="trailing" constant="10" id="T89-mg-CoI"/>
-                                    <constraint firstAttribute="trailing" secondItem="qDD-Eh-aMM" secondAttribute="trailing" constant="10" id="Tvl-d8-rM3"/>
-                                    <constraint firstItem="qDD-Eh-aMM" firstAttribute="leading" secondItem="emG-xx-HK2" secondAttribute="leading" constant="10" id="gVn-UE-vWe"/>
-                                    <constraint firstItem="iMu-75-4mu" firstAttribute="leading" secondItem="emG-xx-HK2" secondAttribute="leading" id="keQ-EP-Q2w"/>
-                                    <constraint firstItem="qDD-Eh-aMM" firstAttribute="top" secondItem="vl3-t3-4uJ" secondAttribute="bottom" constant="5" id="rOs-44-qHl"/>
-                                    <constraint firstAttribute="bottom" secondItem="qDD-Eh-aMM" secondAttribute="bottom" id="t0V-sc-CnW"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3V-rU-ZJX">
-                                <rect key="frame" x="0.0" y="167" width="414" height="685"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5i-fu-eSD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="hHb-dD-puo"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="HzU-aB-TRA"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oNy-zD-A4c" id="61t-ei-qUR"/>
-                                </connections>
-                            </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="djD-It-4TO">
-                                <rect key="frame" x="149.5" y="826" width="115.5" height="26"/>
-                            </pageControl>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6VH-MP-zYd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6VH-MP-zYd" firstAttribute="bottom" secondItem="djD-It-4TO" secondAttribute="bottom" constant="10" id="2NB-s9-pBo"/>
-                            <constraint firstItem="6VH-MP-zYd" firstAttribute="trailing" secondItem="emG-xx-HK2" secondAttribute="trailing" id="QJs-rO-0FO"/>
-                            <constraint firstItem="emG-xx-HK2" firstAttribute="leading" secondItem="6VH-MP-zYd" secondAttribute="leading" id="SV4-Rg-O6R"/>
-                            <constraint firstItem="emG-xx-HK2" firstAttribute="top" secondItem="6VH-MP-zYd" secondAttribute="top" id="SaF-63-hCZ"/>
-                            <constraint firstItem="djD-It-4TO" firstAttribute="centerX" secondItem="7oE-5K-iNV" secondAttribute="centerX" id="e22-6B-SMH"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="pageControl" destination="djD-It-4TO" id="Cn8-jg-ADk"/>
-                        <outlet property="postTitleLabel" destination="qDD-Eh-aMM" id="hqU-Gh-KuT"/>
-                        <outlet property="scrollView" destination="U3V-rU-ZJX" id="B8Q-tR-7hV"/>
-                        <outlet property="skillTitleLabel" destination="vl3-t3-4uJ" id="T11-pt-hba"/>
-                        <outlet property="titleView" destination="emG-xx-HK2" id="AmY-AR-hbd"/>
-                        <outlet property="userImageView" destination="wmd-k6-vw2" id="qid-Tw-p8b"/>
-                        <outlet property="usernameLabel" destination="ZaM-tf-zIR" id="wn8-Xy-FpO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iaa-bp-QcF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2082.608695652174" y="-519.64285714285711"/>
-        </scene>
         <!--Actions View Controller-->
         <scene sceneID="d8h-4X-KtW">
             <objects>
@@ -341,16 +231,12 @@
         <image name="homeSelected" width="25" height="25"/>
         <image name="likes" width="25" height="25"/>
         <image name="likesSelected" width="25" height="25"/>
-        <image name="post2" width="512" height="799"/>
         <image name="profile" width="25" height="31"/>
         <image name="profileSelected" width="25" height="31"/>
         <image name="search" width="25" height="25"/>
         <image name="searchSelected" width="25" height="25"/>
         <namedColor name="backgroundColor">
             <color red="0.011764705882352941" green="0.015686274509803921" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="titleColor">
-            <color red="0.56470588235294117" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

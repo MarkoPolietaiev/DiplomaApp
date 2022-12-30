@@ -31,10 +31,13 @@ class SignUpViewController: BaseViewController {
     }
     
     private func pushToMainVc() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.tabBarViewController() else {return}
-        sceneDelegate.window?.rootViewController = vc
-        UserData.firstLaunch = false
+        DispatchQueue.main.async {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.main.mainViewController() else {return}
+            let navVc = UINavigationController(rootViewController: vc)
+            sceneDelegate.window?.rootViewController = navVc
+            UserData.firstLaunch = false
+        }
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -65,12 +68,15 @@ class SignUpViewController: BaseViewController {
             return
         }
         // create an account
+        self.showActivityIndicator()
         self.authManager.signUp(email: email, password: password, name: username) { response, error in
             if let error = error {
+                self.hideActivityIndicator()
                 self.showErrorAlert(message: error.localizedDescription)
             } else if response != nil {
                 // sign in with the new account
                 self.authManager.signIn(email: email, password: password) { error in
+                    self.hideActivityIndicator()
                     if let error = error {
                         self.showErrorAlert(message: error.localizedDescription)
                     } else {

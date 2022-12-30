@@ -2,54 +2,63 @@
 //  ProfileViewController.swift
 //  Diploma
 //
-//  Created by Marko Polietaiev on 2021-07-10.
+//  Created by Marko Polietaiev on 2022-12-29.
 //
 
 import UIKit
 
 class ProfileViewController: BaseViewController {
 
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var statsStackView: UIStackView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
     
-    var user: User?
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    var userProfile: UserProfile? {
+        didSet {
+            self.updateView()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupDataSource()
-        self.setupView()
-        // Do any additional setup after loading the view.
+        self.getData()
     }
     
-    private func setupDataSource() {
-        self.populateData()
-    }
-    
-    private func setupView() {
-        guard let user = user else { return }
-        self.profileImageView.image = user.image
-        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height/2
-        self.setupStackView()
-    }
-    
-    private func setupStackView() {
-        for (idx, view) in self.statsStackView.subviews.enumerated() {
-            if let view = view as? StatsView, let user = user {
-                view.setupWithItem(user.stats[idx])
+    private func getData() {
+        self.networkManager.getMe { profile, error in
+            if let error = error {
+                self.showErrorAlert(message: error.localizedDescription)
+            } else if let profile = profile {
+                self.userProfile = profile
             }
         }
     }
-}
-
-private extension ProfileViewController {
     
-    func populateData() {
-        let statsItem1 = StatsItem(number: 5, title: "Aims achieved")
-        let statsItem2 = StatsItem(number: 100, title: "Posts")
-        let statsItem3 = StatsItem(number: 13, title: "Deadlines missed")
-        
-        let user = User(username: "MarkoPolietaiev", image: R.image.user1()!, stats: [statsItem1,statsItem2,statsItem3])
-        self.user = user
+    private func updateView() {
+        DispatchQueue.main.async {
+            self.usernameTextField.text = self.userProfile?.name
+            self.emailTextField.text = self.userProfile?.email
+        }
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func signOutButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let sceneDelegate = windowScene.delegate as? SceneDelegate, let vc = R.storyboard.auth.signInViewController() else {return}
+            UserData.authToken = nil
+            let navVc = UINavigationController(rootViewController: vc)
+            sceneDelegate.window?.rootViewController = navVc
+        }
+    }
 }
