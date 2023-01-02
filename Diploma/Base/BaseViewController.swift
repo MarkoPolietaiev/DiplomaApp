@@ -55,13 +55,6 @@ class BaseViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    func goToPostDetail(_ post: Post) {
-        if let postViewController = R.storyboard.main.postViewController() {
-            postViewController.post = post
-            self.navigationController?.pushViewController(postViewController, animated: true)
-        }
-    }
-    
     func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))

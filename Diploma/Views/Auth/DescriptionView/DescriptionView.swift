@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct DescriptionItem {
+    var title: String
+    var image: UIImage
+}
+
 class DescriptionView: BaseView {
 
     @IBOutlet weak var imageView: UIImageView!
