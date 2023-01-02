@@ -89,14 +89,12 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `Auth`.
     static let auth = _R.storyboard.auth()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main2`.
-    static let main2 = _R.storyboard.main2()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
     /// Storyboard `Profile`.
@@ -120,13 +118,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Main2", bundle: ...)`
-    static func main2(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main2)
     }
     #endif
 
@@ -253,7 +244,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 29 images.
+  /// This `R.image` struct is generated, and contains static references to 30 images.
   struct image {
     /// Image `homeSelected`.
     static let homeSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "homeSelected")
@@ -265,6 +256,8 @@ struct R: Rswift.Validatable {
     static let likes = Rswift.ImageResource(bundle: R.hostingBundle, name: "likes")
     /// Image `logInImage`.
     static let logInImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "logInImage")
+    /// Image `logo`.
+    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `newPost`.
     static let newPost = Rswift.ImageResource(bundle: R.hostingBundle, name: "newPost")
     /// Image `post1`.
@@ -346,6 +339,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "logInImage", bundle: ..., traitCollection: ...)`
     static func logInImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logInImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
+    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
     }
     #endif
 
@@ -551,7 +551,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
   struct nib {
     /// Nib `DescriptionView`.
     static let descriptionView = _R.nib._DescriptionView()
@@ -559,10 +559,16 @@ struct R: Rswift.Validatable {
     static let feedTableViewCell = _R.nib._FeedTableViewCell()
     /// Nib `NotificationTableViewCell`.
     static let notificationTableViewCell = _R.nib._NotificationTableViewCell()
+    /// Nib `PostingTableViewCell`.
+    static let postingTableViewCell = _R.nib._PostingTableViewCell()
     /// Nib `SearchCollectionViewCell`.
     static let searchCollectionViewCell = _R.nib._SearchCollectionViewCell()
     /// Nib `StatsView`.
     static let statsView = _R.nib._StatsView()
+    /// Nib `StepFooterView`.
+    static let stepFooterView = _R.nib._StepFooterView()
+    /// Nib `StepTableViewCell`.
+    static let stepTableViewCell = _R.nib._StepTableViewCell()
     /// Nib `StepView`.
     static let stepView = _R.nib._StepView()
 
@@ -591,6 +597,14 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "PostingTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.postingTableViewCell) instead")
+    static func postingTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.postingTableViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "SearchCollectionViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.searchCollectionViewCell) instead")
     static func searchCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -603,6 +617,22 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.statsView) instead")
     static func statsView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.statsView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "StepFooterView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.stepFooterView) instead")
+    static func stepFooterView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.stepFooterView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "StepTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.stepTableViewCell) instead")
+    static func stepTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.stepTableViewCell)
     }
     #endif
 
@@ -626,12 +656,24 @@ struct R: Rswift.Validatable {
       return R.nib.notificationTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NotificationTableViewCell
     }
 
+    static func postingTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PostingTableViewCell? {
+      return R.nib.postingTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostingTableViewCell
+    }
+
     static func searchCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SearchCollectionViewCell? {
       return R.nib.searchCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCollectionViewCell
     }
 
     static func statsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.statsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func stepFooterView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.stepFooterView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func stepTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StepTableViewCell? {
+      return R.nib.stepTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StepTableViewCell
     }
 
     static func stepView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -641,14 +683,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `FeedTableViewCell`.
     static let feedTableViewCell: Rswift.ReuseIdentifier<FeedTableViewCell> = Rswift.ReuseIdentifier(identifier: "FeedTableViewCell")
     /// Reuse identifier `NotificationTableViewCell`.
     static let notificationTableViewCell: Rswift.ReuseIdentifier<NotificationTableViewCell> = Rswift.ReuseIdentifier(identifier: "NotificationTableViewCell")
+    /// Reuse identifier `PostingTableViewCell`.
+    static let postingTableViewCell: Rswift.ReuseIdentifier<PostingTableViewCell> = Rswift.ReuseIdentifier(identifier: "PostingTableViewCell")
     /// Reuse identifier `SearchCollectionViewCell`.
     static let searchCollectionViewCell: Rswift.ReuseIdentifier<SearchCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "SearchCollectionViewCell")
+    /// Reuse identifier `StepTableViewCell`.
+    static let stepTableViewCell: Rswift.ReuseIdentifier<StepTableViewCell> = Rswift.ReuseIdentifier(identifier: "StepTableViewCell")
 
     fileprivate init() {}
   }
@@ -1014,6 +1060,8 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _FeedTableViewCell.validate()
+      try _StepFooterView.validate()
+      try _StepTableViewCell.validate()
     }
 
     struct _DescriptionView: Rswift.NibResourceType {
@@ -1064,6 +1112,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _PostingTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PostingTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "PostingTableViewCell"
+      let name = "PostingTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PostingTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostingTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _SearchCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = SearchCollectionViewCell
 
@@ -1084,6 +1146,45 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _StepFooterView: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "StepFooterView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus.circle.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus.circle.fill' is used in nib 'StepFooterView', but couldn't be loaded.") } }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in nib 'StepFooterView', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _StepTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = StepTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "StepTableViewCell"
+      let name = "StepTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StepTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StepTableViewCell
+      }
+
+      static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "square.grid.3x1.folder.badge.plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'square.grid.3x1.folder.badge.plus' is used in nib 'StepTableViewCell', but couldn't be loaded.") } }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in nib 'StepTableViewCell', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}
@@ -1115,9 +1216,6 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try main.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try main2.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try profile.validate()
@@ -1180,6 +1278,7 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -1189,60 +1288,19 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main2: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = TabBarViewController
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = MainViewController
 
-      let actionsViewController = StoryboardViewControllerResource<ActionsViewController>(identifier: "ActionsViewController")
       let bundle = R.hostingBundle
-      let feedViewController = StoryboardViewControllerResource<FeedViewController>(identifier: "FeedViewController")
-      let name = "Main2"
-      let searchViewController = StoryboardViewControllerResource<SearchViewController>(identifier: "SearchViewController")
-      let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
-
-      func actionsViewController(_: Void = ()) -> ActionsViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: actionsViewController)
-      }
-
-      func feedViewController(_: Void = ()) -> FeedViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: feedViewController)
-      }
-
-      func searchViewController(_: Void = ()) -> SearchViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: searchViewController)
-      }
-
-      func tabBarViewController(_: Void = ()) -> TabBarViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
-      }
-
-      static func validate() throws {
-        if UIKit.UIImage(named: "home", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'home' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "homeSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homeSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "likes", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likes' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "likesSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'likesSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "searchSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'searchSelected' is used in storyboard 'Main2', but couldn't be loaded.") }
-        if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main2', but couldn't be loaded.") }
-        }
-        if _R.storyboard.main2().actionsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'actionsViewController' could not be loaded from storyboard 'Main2' as 'ActionsViewController'.") }
-        if _R.storyboard.main2().feedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'feedViewController' could not be loaded from storyboard 'Main2' as 'FeedViewController'.") }
-        if _R.storyboard.main2().searchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchViewController' could not be loaded from storyboard 'Main2' as 'SearchViewController'.") }
-        if _R.storyboard.main2().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main2' as 'TabBarViewController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
+      let imageDetailViewController = StoryboardViewControllerResource<ImageDetailViewController>(identifier: "ImageDetailViewController")
       let mainViewController = StoryboardViewControllerResource<MainViewController>(identifier: "MainViewController")
       let name = "Main"
       let postViewController = StoryboardViewControllerResource<PostViewController>(identifier: "PostViewController")
+      let postingViewController = StoryboardViewControllerResource<PostingViewController>(identifier: "PostingViewController")
+
+      func imageDetailViewController(_: Void = ()) -> ImageDetailViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: imageDetailViewController)
+      }
 
       func mainViewController(_: Void = ()) -> MainViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mainViewController)
@@ -1252,15 +1310,26 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postViewController)
       }
 
+      func postingViewController(_: Void = ()) -> PostingViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postingViewController)
+      }
+
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark.seal.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'checkmark.seal.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "multiply") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'multiply' is used in storyboard 'Main', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "post2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'post2' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "buttonColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'buttonColor' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "titleColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'titleColor' is used in storyboard 'Main', but couldn't be loaded.") }
         }
+        if _R.storyboard.main().imageDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'imageDetailViewController' could not be loaded from storyboard 'Main' as 'ImageDetailViewController'.") }
         if _R.storyboard.main().mainViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainViewController' could not be loaded from storyboard 'Main' as 'MainViewController'.") }
         if _R.storyboard.main().postViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postViewController' could not be loaded from storyboard 'Main' as 'PostViewController'.") }
+        if _R.storyboard.main().postingViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postingViewController' could not be loaded from storyboard 'Main' as 'PostingViewController'.") }
       }
 
       fileprivate init() {}

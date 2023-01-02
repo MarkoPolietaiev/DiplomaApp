@@ -14,6 +14,8 @@ class BaseViewController: UIViewController {
     let networkManager = NetworkManager.shared()
     
     var activityIndicator: UIActivityIndicatorView?
+    
+    var isDefaultBackground: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,9 @@ class BaseViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.applyGradient()
+        if self.isDefaultBackground {
+            self.applyGradient()
+        }
     }
     
     private func applyGradient() {
@@ -81,5 +85,15 @@ class BaseViewController: UIViewController {
             self.activityIndicator?.removeFromSuperview()
             self.activityIndicator = nil
         }
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+        
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

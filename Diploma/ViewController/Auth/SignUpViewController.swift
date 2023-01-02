@@ -13,21 +13,25 @@ class SignUpViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var createAccountButton: BaseButton!
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var confirmEmailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: BaseTextField!
+    @IBOutlet weak var emailTextField: BaseTextField!
+    @IBOutlet weak var confirmEmailTextField: BaseTextField!
+    @IBOutlet weak var passwordTextField: BaseTextField!
+    @IBOutlet weak var repeatPasswordTextField: BaseTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        self.hideNavigationBar()
     }
     
     private func setupView() {
         self.createAccountButton.setupBorder()
         self.createAccountButton.layer.cornerRadius = self.createAccountButton.frame.height/2
         self.containerView.layer.cornerRadius = 15
+        self.hideKeyboardWhenTappedAround()
+        self.passwordTextField.setupPasswordToggle()
+        self.repeatPasswordTextField.setupPasswordToggle()
     }
     
     private func pushToMainVc() {

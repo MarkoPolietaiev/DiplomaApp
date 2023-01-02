@@ -144,28 +144,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZB-NH-ANx">
                                 <rect key="frame" x="35" y="527" width="344" height="300"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01M-tD-NYF">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01M-tD-NYF" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
                                         <rect key="frame" x="30" y="25" width="284" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="2yN-5H-FiY"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="username"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-eJ-sUd">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-eJ-sUd" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
                                         <rect key="frame" x="30" y="85" width="284" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="F0B-em-xOi"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="password"/>
                                         </userDefinedRuntimeAttributes>
@@ -266,8 +268,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0io-B7-Wyh">
                                 <rect key="frame" x="35" y="244" width="344" height="583"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UB-4k-c7p">
-                                        <rect key="frame" x="30" y="15" width="284" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UB-4k-c7p" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="25" width="284" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="hz0-4l-h0V"/>
                                         </constraints>
@@ -277,13 +281,15 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="username"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-0m-Qha">
-                                        <rect key="frame" x="30" y="135" width="284" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-0m-Qha" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="145" width="284" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="30J-2L-Nn5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="confirm.email"/>
                                         </userDefinedRuntimeAttributes>
@@ -305,30 +311,36 @@
                                             <action selector="createAccountButtonPressed:" destination="C7e-CL-4sY" eventType="touchUpInside" id="w0r-bQ-MQh"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbT-Zz-nMs">
-                                        <rect key="frame" x="30" y="195" width="284" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbT-Zz-nMs" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="205" width="284" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="G0q-mB-Lv2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="password"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjN-4r-s1V">
-                                        <rect key="frame" x="30" y="255" width="284" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjN-4r-s1V" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="265" width="284" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Klj-ed-k4D"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedValue" value="confirm.password"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-mE-cqF">
-                                        <rect key="frame" x="30" y="75" width="284" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxz-mE-cqF" customClass="BaseTextField" customModule="Diploma" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="85" width="284" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="backgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="PVK-ko-dhp"/>
                                         </constraints>
@@ -347,7 +359,7 @@
                                     <constraint firstItem="jbT-Zz-nMs" firstAttribute="top" secondItem="pVa-0m-Qha" secondAttribute="bottom" constant="15" id="7x4-Co-ZCG"/>
                                     <constraint firstItem="vDy-yE-7LJ" firstAttribute="leading" secondItem="0io-B7-Wyh" secondAttribute="leading" constant="30" id="8oM-El-y9A"/>
                                     <constraint firstItem="6UB-4k-c7p" firstAttribute="leading" secondItem="0io-B7-Wyh" secondAttribute="leading" constant="30" id="CcC-ky-7WQ"/>
-                                    <constraint firstItem="6UB-4k-c7p" firstAttribute="top" secondItem="0io-B7-Wyh" secondAttribute="top" constant="15" id="JmJ-G4-QNH"/>
+                                    <constraint firstItem="6UB-4k-c7p" firstAttribute="top" secondItem="0io-B7-Wyh" secondAttribute="top" constant="25" id="JmJ-G4-QNH"/>
                                     <constraint firstAttribute="trailing" secondItem="zjN-4r-s1V" secondAttribute="trailing" constant="30" id="P9z-sj-7QE"/>
                                     <constraint firstItem="pVa-0m-Qha" firstAttribute="top" secondItem="sxz-mE-cqF" secondAttribute="bottom" constant="15" id="R6A-gt-5XX"/>
                                     <constraint firstAttribute="trailing" secondItem="sxz-mE-cqF" secondAttribute="trailing" constant="30" id="SYc-xU-k24"/>

@@ -49,7 +49,7 @@ class BaseTextField: UITextField {
     }
 
     func setupPasswordToggle() {
-        let bookmarkImage = UIImage(systemName: "eye")
+        let bookmarkImage = UIImage(systemName: "eye")?.withTintColor(R.color.backgroundColor() ?? .black)
         overlayButton.setImage(bookmarkImage, for: .normal)
         overlayButton.addTarget(self, action: #selector(setupSecureEntry),
             for: .touchUpInside)
@@ -81,9 +81,9 @@ class BaseTextField: UITextField {
     @objc private func setupSecureEntry() {
         self.isSecureTextEntry = !self.isSecureTextEntry
         if self.isSecureTextEntry {
-            self.overlayButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            self.overlayButton.setImage(UIImage(systemName: "eye")?.withTintColor(R.color.backgroundColor() ?? .black), for: .normal)
         } else {
-            self.overlayButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            self.overlayButton.setImage(UIImage(systemName: "eye.slash")?.withTintColor(R.color.backgroundColor() ?? .black), for: .normal)
         }
     }
     

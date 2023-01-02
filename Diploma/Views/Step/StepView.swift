@@ -33,18 +33,18 @@ class StepView: BaseView, UIScrollViewDelegate {
     }
     
     func setupWithStep(_ step: Step) {
-        self.step = step
-        self.setupMediaView()
-        self.titleLabel.text = step.title
-        self.descriptionLabel.text = step.description
+//        self.step = step
+//        self.setupMediaView()
+//        self.titleLabel.text = step.title
+//        self.descriptionLabel.text = step.description
     }
     
     func setupMediaView() {
         guard let step = step else {
             return
         }
-        self.mediaPageControl.numberOfPages = step.images.count
-        self.mediaPageControl.addTarget(self, action:#selector(pageControlDidChange(_:)), for: .valueChanged)
+//        self.mediaPageControl.numberOfPages = step.images.count
+//        self.mediaPageControl.addTarget(self, action:#selector(pageControlDidChange(_:)), for: .valueChanged)
     }
     
     func setupScrollView() {
@@ -53,12 +53,12 @@ class StepView: BaseView, UIScrollViewDelegate {
         }
         self.mediaScrollView.contentSize = CGSize(width: self.view.frame.width*CGFloat(self.mediaPageControl.numberOfPages), height: self.mediaScrollView.frame.height)
         self.mediaScrollView.isPagingEnabled = translatesAutoresizingMaskIntoConstraints
-        for i in 0..<step.images.count {
-            let imageView = UIImageView(frame: CGRect(x: CGFloat(i)*self.view.frame.width, y: 0, width: self.view.frame.width, height: self.mediaView.frame.height))
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = step.images[i]
-            mediaScrollView.addSubview(imageView)
-        }
+//        for i in 0..<step.images.count {
+//            let imageView = UIImageView(frame: CGRect(x: CGFloat(i)*self.view.frame.width, y: 0, width: self.view.frame.width, height: self.mediaView.frame.height))
+//            imageView.contentMode = .scaleAspectFit
+//            imageView.image = step.images[i]
+//            mediaScrollView.addSubview(imageView)
+//        }
     }
     
     @objc private func pageControlDidChange(_ sender: UIPageControl) {
