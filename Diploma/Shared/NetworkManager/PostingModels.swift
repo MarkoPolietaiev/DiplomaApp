@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Posting: Codable {
     var id: Int?
@@ -34,6 +35,14 @@ struct Tag: Codable {
 
 struct Step: Codable {
     var id: Int?
-    var name: String
-    var image: String
+    var name: String?
+    var image: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case image = "image"
+    }
+    
+    var localImage: UIImage?
 }

@@ -61,6 +61,31 @@ class MainViewController: BaseViewController {
         }
     }
     
+    private func showDeleteAlert(_ indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this goal?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+            self.deletePosting(indexPath)
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    private func deletePosting(_ indexPath: IndexPath) {
+        let item = self.postings[indexPath.row]
+        if let id = item.id {
+            self.networkManager.deletePosting(id: id) { error in
+                if let error = error {
+                    self.showErrorAlert(message: error.localizedDescription)
+                } else {
+                    DispatchQueue.main.async {
+                        self.postings.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .left)
+                    }
+                }
+            }
+        }
+    }
+    
     @objc func refresh(_ sender: AnyObject) {
         self.getData()
     }
@@ -105,19 +130,7 @@ extension MainViewController: UITableViewDelegate {
         }
         editAction.backgroundColor = .gray
         let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (action, view, handler) in
-            let item = self.postings[indexPath.row]
-            if let id = item.id {
-                self.networkManager.deletePosting(id: id) { error in
-                    if let error = error {
-                        self.showErrorAlert(message: error.localizedDescription)
-                    } else {
-                        DispatchQueue.main.async {
-                            self.postings.remove(at: indexPath.row)
-                            self.tableView.deleteRows(at: [indexPath], with: .left)
-                        }
-                    }
-                }
-            }
+            self.showDeleteAlert(indexPath)
         }
         deleteAction.backgroundColor = .red
         let configuration = UISwipeActionsConfiguration(actions: [editAction,deleteAction])

@@ -24,6 +24,7 @@
 		61BE4F5C2962D84D0008EBF0 /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE4F5A2962D84D0008EBF0 /* StepTableViewCell.swift */; };
 		61BE4F5D2962D84D0008EBF0 /* StepTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61BE4F5B2962D84D0008EBF0 /* StepTableViewCell.xib */; };
 		61BE4F5F2962E0E30008EBF0 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE4F5E2962E0E30008EBF0 /* ImageDetailViewController.swift */; };
+		61BE4F612963BC2A0008EBF0 /* StepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE4F602963BC2A0008EBF0 /* StepViewController.swift */; };
 		61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBD2688182D00B799C2 /* R.generated.swift */; };
 		61D24CC02688198500B799C2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24CBF2688198500B799C2 /* UIColor+Extension.swift */; };
 		61D24CC526882B6400B799C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D24CC726882B6400B799C2 /* Localizable.strings */; };
@@ -76,6 +77,7 @@
 		61BE4F5A2962D84D0008EBF0 /* StepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
 		61BE4F5B2962D84D0008EBF0 /* StepTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepTableViewCell.xib; sourceTree = "<group>"; };
 		61BE4F5E2962E0E30008EBF0 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		61BE4F602963BC2A0008EBF0 /* StepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepViewController.swift; sourceTree = "<group>"; };
 		61D24CBD2688182D00B799C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		61D24CBF2688198500B799C2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		61D24CC626882B6400B799C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				613F8E06295ECF53008614E9 /* MainViewController.swift */,
 				613F8E0A2962753B008614E9 /* PostingViewController.swift */,
+				61BE4F602963BC2A0008EBF0 /* StepViewController.swift */,
 				61BE4F5E2962E0E30008EBF0 /* ImageDetailViewController.swift */,
 			);
 			path = Main;
@@ -536,6 +539,7 @@
 				61DA39D3268816A5006DDA44 /* SignUpViewController.swift in Sources */,
 				61D24CDA26882C4800B799C2 /* UserDefaults-AppLocale.swift in Sources */,
 				61D24CBE2688182D00B799C2 /* R.generated.swift in Sources */,
+				61BE4F612963BC2A0008EBF0 /* StepViewController.swift in Sources */,
 				61DD2183265DE71000149815 /* SceneDelegate.swift in Sources */,
 				610AFE4E269BCC0000F55A96 /* BaseTextField.swift in Sources */,
 				61BE4F532962C74E0008EBF0 /* PostingTableViewCell.swift in Sources */,

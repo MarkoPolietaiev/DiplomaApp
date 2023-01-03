@@ -1146,6 +1146,7 @@ struct _R: Rswift.Validatable {
       let mainViewController = StoryboardViewControllerResource<MainViewController>(identifier: "MainViewController")
       let name = "Main"
       let postingViewController = StoryboardViewControllerResource<PostingViewController>(identifier: "PostingViewController")
+      let stepViewController = StoryboardViewControllerResource<StepViewController>(identifier: "StepViewController")
 
       func imageDetailViewController(_: Void = ()) -> ImageDetailViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: imageDetailViewController)
@@ -1159,12 +1160,17 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postingViewController)
       }
 
+      func stepViewController(_: Void = ()) -> StepViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: stepViewController)
+      }
+
       static func validate() throws {
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark.seal.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'checkmark.seal.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "multiply") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'multiply' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "profileSelected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profileSelected' is used in storyboard 'Main', but couldn't be loaded.") }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "square.grid.3x1.folder.badge.plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'square.grid.3x1.folder.badge.plus' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "buttonColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'buttonColor' is used in storyboard 'Main', but couldn't be loaded.") }
@@ -1173,6 +1179,7 @@ struct _R: Rswift.Validatable {
         if _R.storyboard.main().imageDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'imageDetailViewController' could not be loaded from storyboard 'Main' as 'ImageDetailViewController'.") }
         if _R.storyboard.main().mainViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainViewController' could not be loaded from storyboard 'Main' as 'MainViewController'.") }
         if _R.storyboard.main().postingViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postingViewController' could not be loaded from storyboard 'Main' as 'PostingViewController'.") }
+        if _R.storyboard.main().stepViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'stepViewController' could not be loaded from storyboard 'Main' as 'StepViewController'.") }
       }
 
       fileprivate init() {}

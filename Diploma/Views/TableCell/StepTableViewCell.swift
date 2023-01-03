@@ -33,7 +33,11 @@ class StepTableViewCell: UITableViewCell {
     func setupWithStep(_ step: Step) {
         self.step = step
         self.titleLabel.text = step.name
-        self.stepImageView.sd_setImage(with: URL(string: step.image), placeholderImage: UIImage(systemName: "square.grid.3x1.folder.badge.plus"))
+        if let localImage = step.localImage {
+            self.stepImageView.image = localImage
+        } else {
+            self.stepImageView.sd_setImage(with: URL(string: step.image ?? ""), placeholderImage: UIImage(systemName: "square.grid.3x1.folder.badge.plus"))
+        }
     }
     
     @IBAction func imageButtonPressed(_ sender: Any) {

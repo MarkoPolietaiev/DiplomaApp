@@ -67,6 +67,7 @@ class PostingViewController: BaseViewController {
         if let index = minutes.firstIndex(of: posting.timeMinutes) {
             self.minutesPickerView.selectRow(index, inComponent: 0, animated: true)
         }
+        self.descriptionTextView.text = posting.description ?? ""
     }
     
     private func setupNew() {
@@ -79,7 +80,7 @@ class PostingViewController: BaseViewController {
         let tags = tagsString.split(separator: ",").map({return Tag(name: String($0))})
         let timeMinutes = self.minutes[self.minutesPickerView.selectedRow(inComponent: 0)]
         guard let description = self.descriptionTextView.text, !description.isEmpty else {return}
-        let posting = Posting(title: name, timeMinutes: timeMinutes, link: "", tags: tags, steps: [], description: description)
+        let posting = Posting(title: name, timeMinutes: timeMinutes, link: "", tags: tags, steps: self.steps, description: description)
         self.networkManager.createPosting(posting: posting) { postingResponse, error in
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
@@ -94,20 +95,53 @@ class PostingViewController: BaseViewController {
     private func patchOldPosting() {
         guard let id = posting?.id else {return}
         guard let name = self.nameTextField.text, !name.isEmpty else {return}
-        guard let tagsString = self.tagsTextField.text, !tagsString.isEmpty else {return}
-        let tags = tagsString.split(separator: ",").map({return Tag(name: String($0))})
+        let tagsString = self.tagsTextField.text
+        var tags: [Tag] = []
+        if !(tagsString?.isEmpty ?? true) {
+            tags = tagsString?.split(separator: ",").map({return Tag(name: String($0))}) ?? []
+        }
         let timeMinutes = self.minutes[self.minutesPickerView.selectedRow(inComponent: 0)]
         let description = self.descriptionTextView.text
-        let posting = Posting(title: name, timeMinutes: timeMinutes, link: "", tags: tags, steps: [], description: description ?? "")
+        
+        var newSteps: [Step] = []
+        for step in self.steps {
+            newSteps.append(Step(name: step.name, localImage: step.localImage))
+        }
+        
+        let posting = Posting(title: name, timeMinutes: timeMinutes, link: "", tags: tags, steps: newSteps, description: description ?? "")
         
         self.networkManager.updatePosting(id: id, posting: posting) { response, error in
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
-            } else {
+            } else if let response = response {
+                for step in response.steps {
+                    if let newStep = newSteps.first(where: {$0.name == step.name}), let image = newStep.localImage, let id = step.id {
+                        self.networkManager.uploadStepImage(id: id, image: image) { step, error in
+                            
+                        }
+                    }
+                }
                 DispatchQueue.main.async {
                     self.dismiss(animated: true)
                 }
             }
+        }
+    }
+    
+    private func showStepDetail(_ step: Step? = nil) {
+        if let vc = R.storyboard.main.stepViewController() {
+            vc.modalTransitionStyle = .coverVertical
+            vc.modalPresentationStyle = .pageSheet
+            vc.delegate = self
+            vc.step = step
+            if #available(iOS 15.0, *) {
+                if let sheet = vc.sheetPresentationController {
+                    sheet.detents = [.medium()]
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+            self.present(vc, animated: true)
         }
     }
     
@@ -126,7 +160,14 @@ class PostingViewController: BaseViewController {
 
 extension PostingViewController: StepFooterViewDelegate {
     func addNewStep() {
-        return
+        self.showStepDetail()
+    }
+}
+
+extension PostingViewController: StepViewControllerDelegate {
+    func addStep(_ step: Step) {
+        self.steps.append(step)
+        self.stepsTableView.reloadData()
     }
 }
 
@@ -199,11 +240,13 @@ extension PostingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, handler) in
+            self.showStepDetail(self.steps[indexPath.row])
             handler(false)
         }
         editAction.backgroundColor = .gray
         let deleteAction = UIContextualAction(style: .normal, title: "Delete") { (action, view, handler) in
-            
+            self.steps.remove(at: indexPath.row)
+            self.stepsTableView.deleteRows(at: [indexPath], with: .left)
         }
         deleteAction.backgroundColor = .red
         let configuration = UISwipeActionsConfiguration(actions: [editAction, deleteAction])
