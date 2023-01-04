@@ -16,6 +16,7 @@ class NetworkManager {
         case me = "api/user/me/"
         case postings = "api/posting/postings/"
         case steps = "api/posting/steps/"
+        case tags = "/api/posting/tags/"
     }
     
     private let encoder = JSONEncoder()
@@ -302,6 +303,93 @@ extension NetworkManager {
                 }
             }
         }.resume()
+    }
+    
+    func getTags(completion: @escaping (([Tag]?, Error?) -> Void)) {
+        guard var request = self.getRequestWithToken(for: Endpoint.tags.rawValue) else {return}
+        request.httpMethod = "GET"
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, NSError(domain: "dataNilError", code: -100001, userInfo: nil))
+                return
+            }
+            do {
+               // process data
+                let json = try self.decoder.decode([Tag].self, from: data)
+                completion(json, nil)
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+        })
+        task.resume()
+    }
+    
+    func deleteTag(id: Int, completion: @escaping ((Error?) -> Void)) -> Void {
+        guard var request = self.getRequestWithToken(for: Endpoint.tags.rawValue + "\(id)/") else {return}
+        request.httpMethod = "DELETE"
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            completion(nil)
+        })
+        task.resume()
+    }
+    
+    func updateTag(id: Int, tag: Tag, completion: @escaping ((Tag?, Error?) -> Void)) {
+        guard var request = self.getRequestWithToken(for: Endpoint.tags.rawValue + "\(id)/") else {return}
+        request.httpMethod = "PUT"
+        guard let postData = try? encoder.encode(tag) else {return}
+        request.httpBody = postData
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, NSError(domain: "dataNilError", code: -100001, userInfo: nil))
+                return
+            }
+            //create json object from data
+            do {
+               // process data
+                let json = try self.decoder.decode(Tag.self, from: data)
+                completion(json, nil)
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+        })
+        task.resume()
     }
 }
 

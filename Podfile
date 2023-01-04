@@ -7,7 +7,6 @@ target 'Diploma' do
   
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/luckychris/Chameleon.git'
   pod 'R.swift'
-  pod 'SquareFlowLayout'
   pod 'SDWebImage'
   
   # Pods for Diploma
