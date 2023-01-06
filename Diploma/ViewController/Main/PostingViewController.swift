@@ -81,12 +81,28 @@ class PostingViewController: BaseViewController {
         let timeMinutes = self.minutes[self.minutesPickerView.selectedRow(inComponent: 0)]
         guard let description = self.descriptionTextView.text, !description.isEmpty else {return}
         let posting = Posting(title: name, timeMinutes: timeMinutes, link: "", tags: tags, steps: self.steps, description: description)
+        
         self.networkManager.createPosting(posting: posting) { postingResponse, error in
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
             } else if let postingResponse = postingResponse {
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true)
+                let group = DispatchGroup()
+                for step in postingResponse.steps {
+                    if let id = step.id, let localStep = self.steps.first(where: {$0.name == step.name}) {
+                        group.enter()
+                        self.networkManager.uploadStepImage(id: id, image: localStep.localImage ?? UIImage(systemName: "square.grid.3x1.folder.badge.plus")!) { step, error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            }
+                            group.leave()
+                        }
+                    }
+                }
+                group.notify(queue: .main) {
+                    NotificationCenter.default.post(name: .updatePostingsList, object: nil)
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true)
+                    }
                 }
             }
         }
@@ -121,6 +137,7 @@ class PostingViewController: BaseViewController {
                         }
                     }
                 }
+                NotificationCenter.default.post(name: .updatePostingsList, object: nil)
                 DispatchQueue.main.async {
                     self.dismiss(animated: true)
                 }

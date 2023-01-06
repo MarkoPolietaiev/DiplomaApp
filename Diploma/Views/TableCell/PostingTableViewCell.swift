@@ -13,6 +13,7 @@ class PostingTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var posting: Posting?
     
@@ -30,5 +31,6 @@ class PostingTableViewCell: UITableViewCell {
         self.titleLabel.text = posting.title
         self.tagsLabel.text = posting.tags.map({$0.name}).joined(separator: ", ")
         self.timeLabel.text = "Requires \(posting.timeMinutes) minutes"
+        self.descriptionLabel.text = posting.description
     }
 }

@@ -29,6 +29,7 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: .updatePostingsList, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +66,7 @@ class MainViewController: BaseViewController {
         self.collectionView.collectionViewLayout = layout
     }
     
-    private func getData() {
+    @objc private func getData() {
         self.networkManager.getPostings { response, error in
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
