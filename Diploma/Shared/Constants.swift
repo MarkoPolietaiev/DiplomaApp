@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static let updatePostingsList = Notification.Name("update-postings-list")
+    static let updateStepsList = Notification.Name("update-steps-list")
 }

@@ -258,6 +258,55 @@ extension NetworkManager {
         task.resume()
     }
     
+    func getSteps(completion: @escaping (([Step]?, Error?) -> Void)) {
+        guard var request = self.getRequestWithToken(for: Endpoint.steps.rawValue) else {return}
+        request.httpMethod = "GET"
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, NSError(domain: "dataNilError", code: -100001, userInfo: nil))
+                return
+            }
+            do {
+               // process data
+                let json = try self.decoder.decode([Step].self, from: data)
+                completion(json, nil)
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+        })
+        task.resume()
+    }
+    
+    func deleteStep(id: Int, completion: @escaping ((Error?) -> Void)) -> Void {
+        guard var request = self.getRequestWithToken(for: Endpoint.steps.rawValue + "\(id)/") else {return}
+        request.httpMethod = "DELETE"
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            completion(nil)
+        })
+        task.resume()
+    }
+    
     func uploadStepImage(id: Int, image: UIImage, completion: @escaping ((Step?, Error?) -> Void)) {
         let imageData = image.compressTo(1)!.pngData()!
         

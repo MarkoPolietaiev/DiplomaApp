@@ -7,10 +7,12 @@
 
 import UIKit
 
-class MainViewController: BaseViewController {
+class MainViewController: BaseViewController, StepViewControllerDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var goalsButton: UIButton!
     @IBOutlet weak var tagsButton: UIButton!
+    @IBOutlet weak var stepsButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
     
@@ -18,24 +20,45 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var noDataLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var stepsCollectionView: UICollectionView!
     let refreshControl = UIRefreshControl()
     let tagsRefreshControl = UIRefreshControl()
+    let stepsRefreshControl = UIRefreshControl()
     
     var postings: [Posting] = []
-    
-    var tagsSelected: Bool = false
     var tags: [Tag] = []
+    var steps: [Step] = []
+    
+    var selectedItem: SelectedItem = .postings {
+        didSet {
+            switch self.selectedItem {
+            case .postings:
+                self.showGoals()
+            case .steps:
+                self.showSteps()
+            case .tags:
+                self.showTags()
+            }
+        }
+    }
+    enum SelectedItem {
+        case postings
+        case tags
+        case steps
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
         NotificationCenter.default.addObserver(self, selector: #selector(getData), name: .updatePostingsList, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getSteps), name: .updateStepsList, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getData()
         self.getTags()
+        self.getSteps()
     }
     
     private func setupView() {
@@ -44,6 +67,7 @@ class MainViewController: BaseViewController {
         self.addButton.layer.cornerRadius = 15
         self.tableView.register(R.nib.postingTableViewCell)
         self.collectionView.register(R.nib.tagCollectionViewCell)
+        self.stepsCollectionView.register(R.nib.stepCollectionViewCell)
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attributes)
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -52,18 +76,32 @@ class MainViewController: BaseViewController {
         self.tagsRefreshControl.addTarget(self, action: #selector(self.refreshTags(_:)), for: .valueChanged)
         self.collectionView.alwaysBounceVertical = true
         self.collectionView.addSubview(tagsRefreshControl)
+        
+        self.stepsRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attributes)
+        self.stepsRefreshControl.addTarget(self, action: #selector(self.refreshSteps(_:)), for: .valueChanged)
+        self.stepsCollectionView.alwaysBounceVertical = true
+        self.stepsCollectionView.addSubview(stepsRefreshControl)
         self.showGoals()
     }
     
     private func setupLayout() {
+        let width = (self.view.frame.width/3)-30
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let width = (self.view.frame.width/3)-30
         layout.itemSize = CGSize(width: width, height: width)
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 15
         layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 50, right: 15)
         self.collectionView.collectionViewLayout = layout
+        
+        let stepsLayout = UICollectionViewFlowLayout()
+        stepsLayout.scrollDirection = .vertical
+        stepsLayout.itemSize = CGSize(width: width, height: width)
+        stepsLayout.minimumLineSpacing = 15
+        stepsLayout.minimumInteritemSpacing = 15
+        stepsLayout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 50, right: 15)
+        self.stepsCollectionView.collectionViewLayout = stepsLayout
     }
     
     @objc private func getData() {
@@ -81,7 +119,7 @@ class MainViewController: BaseViewController {
         }
     }
     
-    private func getTags() {
+    @objc private func getTags() {
         self.networkManager.getTags { response, error in
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
@@ -91,6 +129,21 @@ class MainViewController: BaseViewController {
                     self.setupNoDataLabel()
                     self.tagsRefreshControl.endRefreshing()
                     self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    @objc private func getSteps() {
+        self.networkManager.getSteps { response, error in
+            if let error = error {
+                self.showErrorAlert(message: error.localizedDescription)
+            } else if let response = response {
+                self.steps = response
+                DispatchQueue.main.async {
+                    self.setupNoDataLabel()
+                    self.stepsRefreshControl.endRefreshing()
+                    self.stepsCollectionView.reloadData()
                 }
             }
         }
@@ -133,26 +186,56 @@ class MainViewController: BaseViewController {
     private func showTags() {
         self.titleLabel.text = "Your Tags"
         self.setupNoDataLabel()
+        
         self.tagsButton.setImage(UIImage(systemName: "doc.fill"), for: .normal)
-        self.tableView.isHidden = true
+        self.stepsButton.setImage(UIImage(systemName: "list.bullet.rectangle.portrait"), for: .normal)
+        self.goalsButton.setImage(UIImage(systemName: "checkmark.rectangle.portrait"), for: .normal)
+        
         self.addButton.isHidden = true
+        
+        self.tableView.isHidden = true
+        self.stepsCollectionView.isHidden = true
         self.collectionView.isHidden = false
     }
     
     private func showGoals() {
         self.titleLabel.text = "Your Motivation List"
         self.setupNoDataLabel()
+        
         self.tagsButton.setImage(UIImage(systemName: "doc"), for: .normal)
-        self.tableView.isHidden = false
+        self.stepsButton.setImage(UIImage(systemName: "list.bullet.rectangle.portrait"), for: .normal)
+        self.goalsButton.setImage(UIImage(systemName: "checkmark.rectangle.portrait.fill"), for: .normal)
+        
         self.addButton.isHidden = false
+        
+        self.tableView.isHidden = false
         self.collectionView.isHidden = true
+        self.stepsCollectionView.isHidden = true
+    }
+    
+    private func showSteps() {
+        self.titleLabel.text = "Your Steps"
+        self.setupNoDataLabel()
+        
+        self.tagsButton.setImage(UIImage(systemName: "doc"), for: .normal)
+        self.stepsButton.setImage(UIImage(systemName: "list.bullet.rectangle.portrait.fill"), for: .normal)
+        self.goalsButton.setImage(UIImage(systemName: "checkmark.rectangle.portrait"), for: .normal)
+        
+        self.addButton.isHidden = true
+        
+        self.tableView.isHidden = true
+        self.collectionView.isHidden = true
+        self.stepsCollectionView.isHidden = false
     }
     
     private func setupNoDataLabel() {
-        if self.tagsSelected {
-            self.noDataLabel.isHidden = self.tags.count > 0
-        } else {
+        switch self.selectedItem {
+        case .postings:
             self.noDataLabel.isHidden = self.postings.count > 0
+        case .tags:
+            self.noDataLabel.isHidden = self.tags.count > 0
+        case .steps:
+            self.noDataLabel.isHidden = self.steps.count > 0
         }
     }
     
@@ -162,6 +245,10 @@ class MainViewController: BaseViewController {
     
     @objc func refreshTags(_ sender: AnyObject) {
         self.getTags()
+    }
+    
+    @objc func refreshSteps(_ sender: AnyObject) {
+        self.getSteps()
     }
     
     @IBAction func profileButtonPressed(_ sender: Any) {
@@ -177,12 +264,15 @@ class MainViewController: BaseViewController {
     }
     
     @IBAction func tagsButtonPressed(_ sender: Any) {
-        self.tagsSelected = !self.tagsSelected
-        if self.tagsSelected {
-            self.showTags()
-        } else {
-            self.showGoals()
-        }
+        self.selectedItem = .tags
+    }
+    
+    @IBAction func stepsButtonPressed(_ sender: Any) {
+        self.selectedItem = .steps
+    }
+    
+    @IBAction func goalsButtonPressed(_ sender: Any) {
+        self.selectedItem = .postings
     }
 }
 
@@ -222,15 +312,27 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.tags.count
+        if collectionView == self.collectionView {
+            return self.tags.count
+        } else {
+            return self.steps.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.tagCollectionViewCell, for: indexPath)!
-        let item = self.tags[indexPath.item]
-        cell.delegate = self
-        cell.setupWithTag(item, indexPath: indexPath)
-        return cell
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.tagCollectionViewCell, for: indexPath)!
+            let item = self.tags[indexPath.item]
+            cell.delegate = self
+            cell.setupWithTag(item, indexPath: indexPath)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.stepCollectionViewCell, for: indexPath)!
+            let item = self.steps[indexPath.item]
+            cell.delegate = self
+            cell.setupWithStep(item, indexPath: indexPath)
+            return cell
+        }
     }
 }
 
@@ -244,6 +346,11 @@ extension MainViewController: TagCollectionViewCellDelegate {
                 DispatchQueue.main.async {
                     self.tags.remove(at: indexPath.item)
                     self.collectionView.deleteItems(at: [indexPath])
+                    for index in 0...self.tags.count-1 {
+                        if let cell = self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? TagCollectionViewCell {
+                            cell.indexPath = IndexPath(item: index, section: 0)
+                        }
+                    }
                 }
             }
         }
@@ -278,6 +385,44 @@ extension MainViewController: TagCollectionViewCellDelegate {
         ac.addAction(cancel)
         ac.addAction(submitAction)
         present(ac, animated: true)
+    }
+}
 
+extension MainViewController: StepCollectionViewCellDelegate {
+    
+    func editStep(_ indexPath: IndexPath) {
+        if let vc = R.storyboard.main.stepViewController() {
+            vc.modalTransitionStyle = .coverVertical
+            vc.modalPresentationStyle = .pageSheet
+            vc.delegate = self
+            vc.step = self.steps[indexPath.item]
+            if #available(iOS 15.0, *) {
+                if let sheet = vc.sheetPresentationController {
+                    sheet.detents = [.medium()]
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func deleteStep(_ indexPath: IndexPath) {
+        guard let id = self.steps[indexPath.item].id else {return}
+        self.networkManager.deleteStep(id: id) { error in
+            if let error = error {
+                self.showErrorAlert(message: error.localizedDescription)
+            } else {
+                DispatchQueue.main.async {
+                    self.steps.remove(at: indexPath.item)
+                    self.stepsCollectionView.deleteItems(at: [indexPath])
+                    for index in 0...self.steps.count-1 {
+                        if let cell = self.stepsCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? StepCollectionViewCell {
+                            cell.indexPath = IndexPath(item: index, section: 0)
+                        }
+                    }
+                }
+            }
+        }
     }
 }

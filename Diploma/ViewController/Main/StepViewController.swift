@@ -11,6 +11,10 @@ protocol StepViewControllerDelegate: AnyObject {
     func addStep(_ step: Step)
 }
 
+extension StepViewControllerDelegate {
+    func addStep(_ step: Step) {return}
+}
+
 class StepViewController: BaseViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -26,6 +30,7 @@ class StepViewController: BaseViewController {
     
     var step: Step?
     var newImage: UIImage?
+    var indexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +116,7 @@ class StepViewController: BaseViewController {
                     if let error = error {
                         self.showErrorAlert(message: error.localizedDescription)
                     } else {
+                        NotificationCenter.default.post(name: .updateStepsList, object: nil)
                         DispatchQueue.main.async {
                             self.dismiss(animated: true)
                         }
@@ -122,6 +128,7 @@ class StepViewController: BaseViewController {
                 if let error = error {
                     self.showErrorAlert(message: error.localizedDescription)
                 } else {
+                    NotificationCenter.default.post(name: .updateStepsList, object: nil)
                     DispatchQueue.main.async {
                         self.dismiss(animated: true)
                     }

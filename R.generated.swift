@@ -551,12 +551,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `DescriptionView`.
     static let descriptionView = _R.nib._DescriptionView()
     /// Nib `PostingTableViewCell`.
     static let postingTableViewCell = _R.nib._PostingTableViewCell()
+    /// Nib `StepCollectionViewCell`.
+    static let stepCollectionViewCell = _R.nib._StepCollectionViewCell()
     /// Nib `StepFooterView`.
     static let stepFooterView = _R.nib._StepFooterView()
     /// Nib `StepTableViewCell`.
@@ -577,6 +579,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.postingTableViewCell) instead")
     static func postingTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.postingTableViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "StepCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.stepCollectionViewCell) instead")
+    static func stepCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.stepCollectionViewCell)
     }
     #endif
 
@@ -612,6 +622,10 @@ struct R: Rswift.Validatable {
       return R.nib.postingTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostingTableViewCell
     }
 
+    static func stepCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StepCollectionViewCell? {
+      return R.nib.stepCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StepCollectionViewCell
+    }
+
     static func stepFooterView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.stepFooterView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -627,10 +641,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `PostingTableViewCell`.
     static let postingTableViewCell: Rswift.ReuseIdentifier<PostingTableViewCell> = Rswift.ReuseIdentifier(identifier: "PostingTableViewCell")
+    /// Reuse identifier `StepCollectionViewCell`.
+    static let stepCollectionViewCell: Rswift.ReuseIdentifier<StepCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "StepCollectionViewCell")
     /// Reuse identifier `StepTableViewCell`.
     static let stepTableViewCell: Rswift.ReuseIdentifier<StepTableViewCell> = Rswift.ReuseIdentifier(identifier: "StepTableViewCell")
     /// Reuse identifier `TagCollectionViewCell`.
@@ -999,6 +1015,7 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _StepCollectionViewCell.validate()
       try _StepFooterView.validate()
       try _StepTableViewCell.validate()
       try _TagCollectionViewCell.validate()
@@ -1024,6 +1041,28 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PostingTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostingTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _StepCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = StepCollectionViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "StepCollectionViewCell"
+      let name = "StepCollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StepCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StepCollectionViewCell
+      }
+
+      static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "square.and.pencil") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'square.and.pencil' is used in nib 'StepCollectionViewCell', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "trash") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'trash' is used in nib 'StepCollectionViewCell', but couldn't be loaded.") } }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundColor' is used in nib 'StepCollectionViewCell', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}
@@ -1204,8 +1243,12 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark.rectangle.portrait") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'checkmark.rectangle.portrait' is used in storyboard 'Main', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark.rectangle.portrait.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'checkmark.rectangle.portrait.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "checkmark.seal.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'checkmark.seal.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "doc") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'doc' is used in storyboard 'Main', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "list.bullet.rectangle.portrait") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'list.bullet.rectangle.portrait' is used in storyboard 'Main', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "list.bullet.rectangle.portrait.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'list.bullet.rectangle.portrait.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "multiply") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'multiply' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "profile", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'profile' is used in storyboard 'Main', but couldn't be loaded.") }
